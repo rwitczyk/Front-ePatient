@@ -2,7 +2,7 @@ import {AppComponent} from './app.component';
 import {NavbarComponent} from './components/navbarUser/navbar.component';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {MDBBootstrapModule, TableModule} from 'angular-bootstrap-md';
+import {ButtonsModule, InputsModule, InputUtilitiesModule, MDBBootstrapModule, TableModule, WavesModule} from 'angular-bootstrap-md';
 import {HomeComponent} from './components/home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {LogInComponent} from './components/log-in/log-in.component';
@@ -11,6 +11,7 @@ import {ForgotPasswordComponent} from './components/forgot-password/forgot-passw
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
 import {MatTabsModule} from '@angular/material/tabs';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     HomeComponent,
     LogInComponent,
     RegisterAccountComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +28,10 @@ import {MatTabsModule} from '@angular/material/tabs';
     AppRoutingModule,
     TableModule,
     MatTabsModule,
+    InputUtilitiesModule,
+    WavesModule,
+    ButtonsModule,
+    InputsModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
@@ -34,7 +39,8 @@ import {MatTabsModule} from '@angular/material/tabs';
       extendedTimeOut: 2000,
       easeTime: 500,
       resetTimeoutOnDuplicate: true
-    })
+    }),
+    FormsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

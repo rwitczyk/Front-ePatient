@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
 <!-- Default form register -->
-
-<div style="width: 40%; margin-left: 30%">
+<div style="width: 50%; margin-left: 25%">
   <form class="text-center border border-light p-5" action="#!">
 
     <p class="h4 mb-4">Stwórz konto</p>
@@ -33,44 +32,66 @@
                  aria-describedby="patientPhoneHelpBlock">
 
           <!-- Sign up button -->
-          <button class="btn btn-info my-4 btn-block">Zarejestruj</button>
+          <button class="btn btn-info my-4 btn-block" (click)="registerPatient()">Zarejestruj</button>
         </div>
       </mat-tab>
 
 
       <mat-tab label="Lekarz"><br>
-        <div class="formInside">
-          <div class="form-row mb-4">
+        <div class="formInside" [formGroup]="doctorForm" *ngIf="doctorForm">
+          <div class="md-form">
+            <!-- First name -->
             <div class="col">
-              <!-- First name -->
-              <input type="text" id="doctorFirstName" class="form-control" placeholder="Imię">
+              <input mdbInput mdbValidate type="email" id="doctorFirstName" class="form-control"
+                     formControlName="doctorFirstNameForm">
+              <label for="doctorFirstName" class="divValidation">Imię</label>
+              <mdb-error class="divValidation" *ngIf="doctorForm.get('doctorFirstNameForm').invalid && (doctorForm.get('doctorFirstNameForm').dirty ||
+                 doctorForm.get('doctorFirstNameForm').touched)">Nieprawidłowe imię
+              </mdb-error>
+              <mdb-success class="divValidation" *ngIf="doctorForm.get('doctorFirstNameForm').valid && (doctorForm.get('doctorFirstNameForm').dirty ||
+                 doctorForm.get('doctorFirstNameForm').touched)">Poprawnie
+              </mdb-success>
             </div>
+
+            <!-- Last name -->
             <div class="col">
-              <!-- Last name -->
-              <input type="text" id="doctorLastName" class="form-control" placeholder="Nazwisko">
+              <input mdbInput mdbValidate type="email" id="doctorLastName" class="form-control"
+                     formControlName="doctorLastNameForm">
+              <label for="doctorLastName" class="divValidation">Nazwisko</label>
+              <mdb-error class="divValidation" *ngIf="doctorForm.get('doctorLastNameForm').invalid && (doctorForm.get('doctorLastNameForm').dirty ||
+                 doctorForm.get('doctorLastNameForm').touched)">Nieprawidłowe nazwisko
+              </mdb-error>
+              <mdb-success class="divValidation" *ngIf="doctorForm.get('doctorLastNameForm').valid && (doctorForm.get('doctorLastNameForm').dirty ||
+                 doctorForm.get('doctorLastNameForm').touched)">Poprawnie
+              </mdb-success>
             </div>
+
+
+            <!-- E-mail -->
+            <input type="email" id="doctorEmail" class="form-control mb-4" placeholder="Email"
+                     formControlName="doctorEmailForm">
+
+            <!-- Password -->
+            <input type="password" id="doctorPassword" class="form-control mb-4" placeholder="Hasło"
+                   aria-describedby="patientPasswordHelpBlock" formControlName="doctorPasswordForm">
+
+            <!-- Doctor Profession -->
+            <input type="text" id="doctorProfession" class="form-control mb-4" placeholder="Zawód"
+                   aria-describedby="doctorProfession" formControlName="doctorProfessionForm">
+
+            <!-- Room Number -->
+            <input type="text" id="doctorRoomNumber" class="form-control mb-4" placeholder="Numer pokoju"
+                   aria-describedby="doctorRoomNumber" formControlName="doctorRoomNumberForm">
+
+            <!-- Phone number -->
+            <input type="text" id="doctorPhonePassword" class="form-control mb-4" placeholder="Numer telefonu"
+                   aria-describedby="doctorPhoneHelpBlock" formControlName="doctorPhoneForm">
+
+            <!-- Sign up button -->
+            <button class="btn btn-info my-4 btn-block" (click)="registerDoctor()">Zarejestruj</button>
           </div>
-
-          <!-- E-mail -->
-          <input type="email" id="doctorEmail" class="form-control mb-4" placeholder="E-mail">
-
-          <!-- Password -->
-          <input type="password" id="doctorPassword" class="form-control mb-4" placeholder="Hasło"
-                 aria-describedby="patientPasswordHelpBlock">
-
-          <!-- Phone number -->
-          <input type="text" id="doctorJob" class="form-control mb-4" placeholder="Zawód"
-                 aria-describedby="doctorJob">
-
-          <!-- Phone number -->
-          <input type="text" id="doctorPhonePassword" class="form-control mb-4" placeholder="Numer telefonu"
-                 aria-describedby="doctorPhoneHelpBlock">
-
-          <!-- Sign up button -->
-          <button class="btn btn-info my-4 btn-block">Zarejestruj</button>
         </div>
       </mat-tab>
-
     </mat-tab-group>
 
 
