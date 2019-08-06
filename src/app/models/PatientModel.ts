@@ -6,5 +6,6 @@ export class PatientModel {
   pesel: string;
   phoneNumber: string;
   email: string;
+  password: string;
   doctorid: number;
 }

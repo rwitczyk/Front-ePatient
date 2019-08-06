@@ -7,7 +7,7 @@
 
     <mat-tab-group animationDuration="10ms">
 
-      <mat-tab label="Pacjent"><br>
+      <mat-tab label="Pacjent">
         <div class="formInside" [formGroup]="patientForm" *ngIf="patientForm">
           <div class="form-row">
 
@@ -64,6 +64,32 @@
             </mdb-error>
             <mdb-success class="divValidation" *ngIf="patientForm.get('patientPasswordForm').valid && (patientForm.get('patientPasswordForm').dirty ||
                  patientForm.get('patientPasswordForm').touched)">Poprawnie
+            </mdb-success>
+          </div>
+
+
+          <!-- Date of Birth -->
+          <div class="input-field formBlock">
+            <input type="text" id="patientDateOfBirth" class="validate" formControlName="patientDateOfBirthForm">
+            <label for="patientDateOfBirth" class="divValidation">Data urodzenia</label>
+            <mdb-error class="divValidation" *ngIf="patientForm.get('patientDateOfBirthForm').invalid && (patientForm.get('patientDateOfBirthForm').dirty ||
+                 patientForm.get('patientDateOfBirthForm').touched)">Nieprawidłowa data urodzenia
+            </mdb-error>
+            <mdb-success class="divValidation" *ngIf="patientForm.get('patientDateOfBirthForm').valid && (patientForm.get('patientDateOfBirthForm').dirty ||
+                 patientForm.get('patientDateOfBirthForm').touched)">Poprawnie
+            </mdb-success>
+          </div>
+
+
+          <!-- Pesel -->
+          <div class="input-field formBlock">
+            <input type="text" id="patientPesel" class="validate" formControlName="patientPeselForm">
+            <label for="patientPesel" class="divValidation">Pesel</label>
+            <mdb-error class="divValidation" *ngIf="patientForm.get('patientPeselForm').invalid && (patientForm.get('patientPeselForm').dirty ||
+                 patientForm.get('patientPeselForm').touched)">Nieprawidłowy pesel
+            </mdb-error>
+            <mdb-success class="divValidation" *ngIf="patientForm.get('patientPeselForm').valid && (patientForm.get('patientPeselForm').dirty ||
+                 patientForm.get('patientPeselForm').touched)">Poprawnie
             </mdb-success>
           </div>
 
