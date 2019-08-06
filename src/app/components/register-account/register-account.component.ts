@@ -22,7 +22,7 @@ export class RegisterAccountComponent implements OnInit {
       doctorPasswordForm: [null, Validators.required],
       doctorProfessionForm: [null, Validators.required],
       doctorRoomNumberForm: [null],
-      doctorPhoneNumberForm: [null, Validators.pattern('[0-9]{9}')]
+      doctorPhoneNumberForm: [null, [Validators.pattern('[0-9]{9}'), Validators.required]]
     });
 
     this.patientForm = this.fb.group({
@@ -30,13 +30,13 @@ export class RegisterAccountComponent implements OnInit {
       patientFirstNameForm: [null, Validators.required],
       patientLastNameForm: [null, Validators.required],
       patientPasswordForm: [null, Validators.required],
-      patientPhoneNumberForm: [null, Validators.pattern('[0-9]{9}')]
+      patientPhoneNumberForm: [null, [Validators.pattern('[0-9]{9}'), Validators.required]]
     });
   }
 
   registerDoctor() {
-    if (this.doctorForm.hasError('required')) {
-      console.log(this.doctorForm.controls.doctorFirstNameForm.value);
+    if (this.doctorForm.invalid) {
+
       this.toastr.success('Utworzono nowe konto!');
     } else {
       this.toastr.error('Sprawdź dane w formularzu');
