@@ -34,7 +34,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     InputsModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut: 3000,
+      timeOut: 2500,
       progressBar: true,
       extendedTimeOut: 2000,
       easeTime: 500,
