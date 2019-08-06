@@ -1,30 +1,36 @@
 <app-navbar></app-navbar>
 <div style="width: 40%; margin-left: 30%">
-<form class="text-center border border-light p-5">
+  <form class="text-center border border-light p-5">
 
-  <p class="h4 mb-4">Logowanie:</p>
+    <p class="h4 mb-4">Logowanie:</p>
 
-  <!-- Email -->
-  <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-  <!-- Password -->
-  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-
-  <div class="d-flex justify-content-around">
-    <div>
-      <!-- Forgot password -->
-      <a href="/forgotpassword">Zapomniałeś hasła?</a>
+    <!-- Email -->
+    <div class="input-field formBlock">
+      <input type="email" id="defaultLoginFormEmail" class="form-control mb-4">
+      <label for="defaultLoginFormEmail">E-mail</label>
     </div>
-  </div>
 
-  <!-- Sign in button -->
-  <button class="btn btn-info btn-block my-4" type="submit">Zaloguj</button>
+    <!-- Password -->
+    <div class="input-field formBlock">
+      <input type="password" id="defaultLoginFormPassword" class="form-control mb-4">
+      <label for="defaultLoginFormPassword">Hasło</label>
+    </div>
 
-  <!-- Register -->
-  <p>Nie masz konta?
-    <a  href="/register">Zarejestruj się</a>
-  </p>
+    <div class="d-flex justify-content-around">
+      <div>
+        <!-- Forgot password -->
+        <a href="/forgot-password">Zapomniałeś hasła?</a>
+      </div>
+    </div>
 
-</form>
-<!-- Default form login -->
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block my-4" type="submit">Zaloguj</button>
+
+    <!-- Register -->
+    <p>Nie masz konta?
+      <a href="/register">Zarejestruj się</a>
+    </p>
+
+  </form>
+  <!-- Default form login -->
 </div>
