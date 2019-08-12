@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
+import {AccountService} from '../../services/account.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -10,7 +11,7 @@ import {ToastrService} from 'ngx-toastr';
 export class ForgotPasswordComponent implements OnInit {
   emailForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private toastr: ToastrService) {
+  constructor(private fb: FormBuilder, private toastr: ToastrService, private accountService: AccountService) {
   }
 
   ngOnInit() {
@@ -23,8 +24,9 @@ export class ForgotPasswordComponent implements OnInit {
     if (this.emailForm.get('userEmail').hasError('email') || this.emailForm.get('userEmail').hasError('required')) {
       this.toastr.error('Podaj poprawny email');
     } else {
-      // TODO
-      this.toastr.success('Wysłano powiadomienie na podany adres email');
+      this.accountService.sendEmail(this.emailForm.get('userEmail').value).subscribe(value => {
+        this.toastr.success('Wysłano powiadomienie na podany adres email');
+      }, error1 => this.toastr.error('Błąd wysyłania email'));
     }
   }
 }

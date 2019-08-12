@@ -13,6 +13,8 @@ import {ToastrModule} from 'ngx-toastr';
 import {MatTabsModule} from '@angular/material/tabs';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {PatientDatePickerComponent} from './components/patient-date-picker/patient-date-picker.component';
+import {FullCalendarModule} from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
     LogInComponent,
     RegisterAccountComponent,
     ForgotPasswordComponent,
+    PatientDatePickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import {HttpClientModule} from '@angular/common/http';
     InputUtilitiesModule,
     WavesModule,
     HttpClientModule,
+    FullCalendarModule,
     ButtonsModule,
     InputsModule.forRoot(),
     BrowserAnimationsModule,
@@ -47,4 +51,5 @@ import {HttpClientModule} from '@angular/common/http';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
