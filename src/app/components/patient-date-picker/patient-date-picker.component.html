@@ -1,4 +1,10 @@
 <app-navbar></app-navbar>
-<full-calendar
-  (dateClick)="handleDateClick($event)" [plugins]="calendarPlugins">
-</full-calendar>
+<div class="calendar">
+  <full-calendar
+    defaultView="dayGridMonth"
+    (dateClick)="handleDateClick($event)"
+    [weekends]="false"
+    [plugins]="calendarPlugins"
+  >
+  </full-calendar>
+</div>

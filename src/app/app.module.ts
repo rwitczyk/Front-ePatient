@@ -15,6 +15,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {PatientDatePickerComponent} from './components/patient-date-picker/patient-date-picker.component';
 import {FullCalendarModule} from '@fullcalendar/angular';
+import {PatientHoursPickerComponent} from './components/patient-hours-picker/patient-hours-picker.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {FullCalendarModule} from '@fullcalendar/angular';
     RegisterAccountComponent,
     ForgotPasswordComponent,
     PatientDatePickerComponent,
+    PatientHoursPickerComponent,
   ],
   imports: [
     BrowserModule,

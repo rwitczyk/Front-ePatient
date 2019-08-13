@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import {Router} from '@angular/router'; // for dateClick
 
 @Component({
   selector: 'app-patient-date-picker',
@@ -8,11 +10,13 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 })
 export class PatientDatePickerComponent implements OnInit {
   // https://fullcalendar.io/docs/angular
-  calendarPlugins = [dayGridPlugin];
+  calendarPlugins = [dayGridPlugin, interactionPlugin];
+
+  constructor(private router: Router) {
+  }
 
   handleDateClick(arg) { // handler method
-    alert(arg.dateStr);
-    console.log(arg.dateStr);
+    this.router.navigate(['/patient-hours-picker/' + arg.dateStr]);
   }
 
   ngOnInit(): void {

@@ -5,6 +5,7 @@ import {LogInComponent} from './components/log-in/log-in.component';
 import {RegisterAccountComponent} from './components/register-account/register-account.component';
 import {ForgotPasswordComponent} from './components/forgot-password/forgot-password.component';
 import {PatientDatePickerComponent} from './components/patient-date-picker/patient-date-picker.component';
+import {PatientHoursPickerComponent} from './components/patient-hours-picker/patient-hours-picker.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'login', component: LogInComponent},
   {path: 'register', component: RegisterAccountComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
-  {path: 'patient-date-picker', component: PatientDatePickerComponent}
+  {path: 'patient-date-picker', component: PatientDatePickerComponent},
+  {path: 'patient-hours-picker/:date', component: PatientHoursPickerComponent}
 ];
 
 @NgModule({
