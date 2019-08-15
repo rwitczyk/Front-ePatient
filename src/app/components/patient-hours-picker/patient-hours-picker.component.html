@@ -1,1 +1,37 @@
-<p>patient-hours-picker works!</p>
+<app-navbar></app-navbar>
+
+<div class="div-center">
+  <h4>{{date}}</h4>
+  <div class="table-responsive">
+    <table class="mat-table">
+      <thead>
+      <tr>
+        <th scope="col">Czas</th>
+        <th scope="col">Stan</th>
+        <th scope="col">Rezerwuj</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">8:00</th>
+        <td>Dostępne</td>
+        <td>
+          <button class="btn btn-info">Rezerwuj</button>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">8:30</th>
+        <td>Zajęte</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row">9:00</th>
+        <td>Wolne</td>
+        <td>
+          <button class="btn btn-info">Rezerwuj</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
