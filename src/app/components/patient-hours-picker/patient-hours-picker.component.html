@@ -2,13 +2,19 @@
 
 <div class="div-center">
   <h4>{{date}}</h4>
+
+  Wybierz doktora:
+  <label>
+    <select>
+      <option *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
+    </select>
+  </label>
+
   <div class="table-responsive">
     <table class="mat-table">
-      <thead>
+      <thead class="blue-gradient white-text">
       <tr>
-        <th scope="col">Czas</th>
-        <th scope="col">Stan</th>
-        <th scope="col">Rezerwuj</th>
+        <th *ngFor="let header of tableHeaders" scope="col">{{header}}</th>
       </tr>
       </thead>
       <tbody>
