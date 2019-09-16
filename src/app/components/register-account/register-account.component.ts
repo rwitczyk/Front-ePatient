@@ -4,6 +4,7 @@ import {ToastrService} from 'ngx-toastr';
 import {PatientModel} from '../../models/PatientModel';
 import {DoctorModel} from '../../models/DoctorModel';
 import {PatientService} from '../../services/patient.service';
+import {DoctorService} from '../../services/doctor.service';
 
 @Component({
   selector: 'app-register-account',
@@ -16,7 +17,8 @@ export class RegisterAccountComponent implements OnInit {
   patientModel: PatientModel;
   doctorModel: DoctorModel;
 
-  constructor(private fb: FormBuilder, private toastr: ToastrService, private patientService: PatientService) {
+  constructor(private fb: FormBuilder, private toastr: ToastrService, private patientService: PatientService,
+              private doctorService: DoctorService) {
   }
 
   ngOnInit() {
@@ -42,13 +44,27 @@ export class RegisterAccountComponent implements OnInit {
   }
 
   registerDoctor() {
-    if (this.doctorForm.invalid) {
+    // if (this.doctorForm.invalid) {
+    this.doctorModel = new DoctorModel();
+    this.doctorModel.email = this.doctorForm.controls.doctorEmailForm.value;
+    this.doctorModel.name = this.doctorForm.controls.doctorFirstNameForm.value;
+    this.doctorModel.surname = this.doctorForm.controls.doctorLastNameForm.value;
+    this.doctorModel.password = this.doctorForm.controls.doctorPasswordForm.value;
+    this.doctorModel.profession = this.doctorForm.controls.doctorProfessionForm.value;
+    this.doctorModel.roomNumber = this.doctorForm.controls.doctorRoomNumberForm.value;
+    this.doctorModel.phoneNumber = this.doctorForm.controls.doctorPhoneNumberForm.value;
 
-      this.toastr.success('Utworzono nowe konto!');
-    } else {
-      this.toastr.error('Sprawdź dane w formularzu');
-    }
+    this.doctorService.addDoctorAccount(this.doctorModel).subscribe(() => {
+      this.toastr.success('Pomyślnie utworzono konto doktora!');
+    }, () => {
+      this.toastr.error('Błąd dodawania konta doktora');
+    });
   }
+
+  // } else {
+  //   this.toastr.error('Sprawdź dane w formularzu');
+  // }
+
 
   registerPatient() {
     this.patientModel = new PatientModel();
@@ -60,9 +76,9 @@ export class RegisterAccountComponent implements OnInit {
     this.patientModel.pesel = this.patientForm.controls.patientPeselForm.value;
     this.patientModel.phoneNumber = this.patientForm.controls.patientPhoneNumberForm.value;
 
-    this.patientService.addPatientAccount(this.patientModel).subscribe(value => {
-      this.toastr.success('Pomyślnie utworzono konto');
-    }, error => this.toastr.error('Błąd dodawania pacjenta'));
+    this.patientService.addPatientAccount(this.patientModel).subscribe(() => {
+      this.toastr.success('Pomyślnie utworzono konto pacjenta');
+    }, () => this.toastr.error('Błąd dodawania konta pacjenta'));
 
     console.log(this.patientForm.controls.patientFirstNameForm.value);
   }

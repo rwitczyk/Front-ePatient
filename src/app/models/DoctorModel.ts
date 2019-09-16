@@ -5,4 +5,6 @@ export class DoctorModel {
   profession: string;
   roomNumber: string;
   phoneNumber: string;
+  email: string;
+  password: string;
 }

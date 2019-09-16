@@ -14,4 +14,8 @@ export class DoctorService {
   getAllDoctors() {
     return this.http.get<DoctorModel[]>(environment.backendUrl + '/doctors');
   }
+
+  addDoctorAccount(doctor: DoctorModel) {
+    return this.http.post(`${environment.backendUrl}/api/doctor/add`, doctor);
+  }
 }
