@@ -4,14 +4,61 @@
   width: 100%;
 }
 
-.background{
+.background {
   position: relative;
-  text-align: center;
 }
 
-.text-center{
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+h1 {
+  color: #333333;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 4em;
+  letter-spacing: -2px;
+  text-shadow: 1px 2px 1px rgba(0, 0, 0, .6);
+}
+
+.text-animation {
+  -webkit-animation-name: landing-page-animation; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+  -webkit-animation: landing-page-animation 2.0s forwards; /* for less modern browsers */
+
+  animation-name: landing-page-animation;
+  animation-duration: 2s;
+  animation: landing-page-animation 2.0s forwards;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes landing-page-animation {
+  0% {
+    position: absolute;
+    color: #111111;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    position: absolute;
+    color: #333333;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Standard syntax */
+@keyframes landing-page-animation {
+  0% {
+    position: absolute;
+    color: #111111;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    position: absolute;
+    color: #333333;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }

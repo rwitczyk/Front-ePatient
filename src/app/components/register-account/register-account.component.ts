@@ -44,42 +44,44 @@ export class RegisterAccountComponent implements OnInit {
   }
 
   registerDoctor() {
-    // if (this.doctorForm.invalid) {
-    this.doctorModel = new DoctorModel();
-    this.doctorModel.email = this.doctorForm.controls.doctorEmailForm.value;
-    this.doctorModel.name = this.doctorForm.controls.doctorFirstNameForm.value;
-    this.doctorModel.surname = this.doctorForm.controls.doctorLastNameForm.value;
-    this.doctorModel.password = this.doctorForm.controls.doctorPasswordForm.value;
-    this.doctorModel.profession = this.doctorForm.controls.doctorProfessionForm.value;
-    this.doctorModel.roomNumber = this.doctorForm.controls.doctorRoomNumberForm.value;
-    this.doctorModel.phoneNumber = this.doctorForm.controls.doctorPhoneNumberForm.value;
+    if (this.doctorForm.valid) {
+      this.doctorModel = new DoctorModel();
+      this.doctorModel.email = this.doctorForm.controls.doctorEmailForm.value;
+      this.doctorModel.name = this.doctorForm.controls.doctorFirstNameForm.value;
+      this.doctorModel.surname = this.doctorForm.controls.doctorLastNameForm.value;
+      this.doctorModel.password = this.doctorForm.controls.doctorPasswordForm.value;
+      this.doctorModel.profession = this.doctorForm.controls.doctorProfessionForm.value;
+      this.doctorModel.roomNumber = this.doctorForm.controls.doctorRoomNumberForm.value;
+      this.doctorModel.phoneNumber = this.doctorForm.controls.doctorPhoneNumberForm.value;
 
-    this.doctorService.addDoctorAccount(this.doctorModel).subscribe(() => {
-      this.toastr.success('Pomyślnie utworzono konto doktora!');
-    }, () => {
-      this.toastr.error('Błąd dodawania konta doktora');
-    });
+      this.doctorService.addDoctorAccount(this.doctorModel).subscribe(() => {
+        this.toastr.success('Pomyślnie utworzono konto doktora!');
+      }, () => {
+        this.toastr.error('Błąd dodawania konta doktora');
+      });
+    } else {
+      this.toastr.error('Sprawdź dane w formularzu');
+    }
   }
-
-  // } else {
-  //   this.toastr.error('Sprawdź dane w formularzu');
-  // }
 
 
   registerPatient() {
-    this.patientModel = new PatientModel();
-    this.patientModel.email = this.patientForm.controls.patientEmailForm.value;
-    this.patientModel.password = this.patientForm.controls.patientPasswordForm.value;
-    this.patientModel.name = this.patientForm.controls.patientFirstNameForm.value;
-    this.patientModel.surname = this.patientForm.controls.patientLastNameForm.value;
-    this.patientModel.dateOfBirth = this.patientForm.controls.patientDateOfBirthForm.value;
-    this.patientModel.pesel = this.patientForm.controls.patientPeselForm.value;
-    this.patientModel.phoneNumber = this.patientForm.controls.patientPhoneNumberForm.value;
+    if (this.patientForm.valid) {
+      this.patientModel = new PatientModel();
+      this.patientModel.email = this.patientForm.controls.patientEmailForm.value;
+      this.patientModel.password = this.patientForm.controls.patientPasswordForm.value;
+      this.patientModel.name = this.patientForm.controls.patientFirstNameForm.value;
+      this.patientModel.surname = this.patientForm.controls.patientLastNameForm.value;
+      this.patientModel.dateOfBirth = this.patientForm.controls.patientDateOfBirthForm.value;
+      this.patientModel.pesel = this.patientForm.controls.patientPeselForm.value;
+      this.patientModel.phoneNumber = this.patientForm.controls.patientPhoneNumberForm.value;
 
-    this.patientService.addPatientAccount(this.patientModel).subscribe(() => {
-      this.toastr.success('Pomyślnie utworzono konto pacjenta');
-    }, () => this.toastr.error('Błąd dodawania konta pacjenta'));
+      this.patientService.addPatientAccount(this.patientModel).subscribe(() => {
+        this.toastr.success('Pomyślnie utworzono konto pacjenta');
+      }, () => this.toastr.error('Błąd dodawania konta pacjenta'));
 
-    console.log(this.patientForm.controls.patientFirstNameForm.value);
+    } else {
+      this.toastr.error('Sprawdź dane w formularzu');
+    }
   }
 }
