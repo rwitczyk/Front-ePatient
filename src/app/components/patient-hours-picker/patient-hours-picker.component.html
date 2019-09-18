@@ -5,36 +5,28 @@
 
   Wybierz doktora:
   <label>
-    <select>
-      <option *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
+    <select class="browser-default custom-select" (change)="selectOption()" [(ngModel)]="selectedDoctorId">
+      <option></option>
+      <option [value]="doctor.doctorId" *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
     </select>
   </label>
 
   <div class="table-responsive">
     <table class="mat-table">
-      <thead class="blue-gradient white-text">
+      <thead class="blue white-text">
       <tr>
         <th *ngFor="let header of tableHeaders" scope="col">{{header}}</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">8:00</th>
-        <td>Dostępne</td>
+      <tr *ngFor="let element of keys, let i = index">
+        <th scope="row">{{element}}</th>
         <td>
-          <button class="btn btn-info">Rezerwuj</button>
+          <div *ngIf="values[i] === false; else elseBlock">Wolne</div>
+          <ng-template #elseBlock>Zajete</ng-template>
         </td>
-      </tr>
-      <tr>
-        <th scope="row">8:30</th>
-        <td>Zajęte</td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row">9:00</th>
-        <td>Wolne</td>
         <td>
-          <button class="btn btn-info">Rezerwuj</button>
+          <button *ngIf="values[i] === false" class="btn btn-info">Rezerwuj</button>
         </td>
       </tr>
       </tbody>
