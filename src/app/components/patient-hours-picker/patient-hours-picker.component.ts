@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {DoctorService} from '../../services/doctor.service';
 import {DoctorModel} from '../../models/DoctorModel';
 import {DoctorDatesModel} from '../../models/DoctorDatesModel';
+import {HourModel} from '../../models/HourModel';
 
 @Component({
   selector: 'app-patient-hours-picker',
@@ -15,9 +16,7 @@ export class PatientHoursPickerComponent implements OnInit {
   doctors: DoctorModel[];
   doctorDates: DoctorDatesModel;
   selectedDoctorId: number;
-  listOfHours: Map<string, boolean>;
-  keys: string[];
-  values: boolean[];
+  doctorHours: HourModel[];
 
   constructor(private route: ActivatedRoute, private doctorService: DoctorService) {
   }
@@ -38,10 +37,8 @@ export class PatientHoursPickerComponent implements OnInit {
 
         for (let i = 0; i < this.doctorDates.days.length; i++) {
           if (this.doctorDates.days[i].date === this.date) {
-            // date from form
-            this.listOfHours = this.doctorDates.days[i].listOfHours;
-            this.keys = Object.keys(this.listOfHours);
-            this.values = Object.values(this.listOfHours);
+            this.doctorHours = this.doctorDates.days[i].listOfHours;
+            console.log(this.doctorHours);
           }
         }
       });

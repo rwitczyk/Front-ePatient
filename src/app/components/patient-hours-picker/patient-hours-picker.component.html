@@ -19,14 +19,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let element of keys, let i = index">
-        <th scope="row">{{element}}</th>
+      <tr *ngFor="let element of doctorHours">
+        <th scope="row">{{element.time}}</th>
         <td>
-          <div *ngIf="values[i] === false; else elseBlock">Wolne</div>
+          <div *ngIf="element.isBusy === 'false'; else elseBlock">Wolne</div>
           <ng-template #elseBlock>Zajete</ng-template>
         </td>
         <td>
-          <button *ngIf="values[i] === false" class="btn btn-info">Rezerwuj</button>
+          <button *ngIf="element.isBusy === 'false'" class="btn btn-info">Rezerwuj</button>
         </td>
       </tr>
       </tbody>
