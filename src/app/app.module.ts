@@ -2,7 +2,15 @@ import {AppComponent} from './app.component';
 import {NavbarComponent} from './components/navbarUser/navbar.component';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {ButtonsModule, InputsModule, InputUtilitiesModule, MDBBootstrapModule, TableModule, WavesModule} from 'angular-bootstrap-md';
+import {
+  ButtonsModule,
+  InputsModule,
+  InputUtilitiesModule,
+  MDBBootstrapModule,
+  NavbarModule,
+  TableModule,
+  WavesModule
+} from 'angular-bootstrap-md';
 import {HomeComponent} from './components/home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {LogInComponent} from './components/log-in/log-in.component';
@@ -39,6 +47,7 @@ import {PatientHoursPickerComponent} from './components/patient-hours-picker/pat
     HttpClientModule,
     FullCalendarModule,
     ButtonsModule,
+    NavbarModule,
     InputsModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot({
