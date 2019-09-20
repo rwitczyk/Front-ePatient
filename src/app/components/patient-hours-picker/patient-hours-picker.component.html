@@ -11,25 +11,23 @@
     </select>
   </label>
 
-  <div class="table-responsive">
-    <table class="mat-table">
-      <thead class="blue white-text">
-      <tr>
-        <th *ngFor="let header of tableHeaders" scope="col">{{header}}</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let element of doctorHours">
-        <th scope="row">{{element.time}}</th>
-        <td>
-          <div *ngIf="element.isBusy === 'false'; else elseBlock">Wolne</div>
-          <ng-template #elseBlock>Zajete</ng-template>
-        </td>
-        <td>
-          <button *ngIf="element.isBusy === 'false'" class="btn btn-info">Rezerwuj</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+  <table mdbTable>
+    <thead class="blue white-text">
+    <tr>
+      <th *ngFor="let header of tableHeaders" scope="col">{{header}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let element of doctorHours">
+      <th mdbTableRow scope="row">{{element.time}}</th>
+      <td>
+        <div *ngIf="element.isBusy === 'false'; else elseBlock">Wolne</div>
+        <ng-template #elseBlock>Zajete</ng-template>
+      </td>
+      <td>
+        <button *ngIf="element.isBusy === 'false'" class="btn btn-info">Rezerwuj</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
