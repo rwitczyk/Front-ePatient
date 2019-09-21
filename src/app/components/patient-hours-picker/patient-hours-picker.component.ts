@@ -11,18 +11,27 @@ import {HourModel} from '../../models/HourModel';
   styleUrls: ['./patient-hours-picker.component.scss']
 })
 export class PatientHoursPickerComponent implements OnInit {
-  date: string;
+  dateFromPath: Date;
+  stringDateFromPath: string;
   tableHeaders: string[] = ['Godzina', 'Stan', 'Rezerwuj'];
   doctors: DoctorModel[];
   doctorDates: DoctorDatesModel;
   selectedDoctorId: number;
   doctorHours: HourModel[];
+  actualDate: Date;
+  isDateOk = true;
 
   constructor(private route: ActivatedRoute, private doctorService: DoctorService) {
   }
 
   ngOnInit() {
-    this.date = this.route.snapshot.paramMap.get('date');
+    this.stringDateFromPath = this.route.snapshot.paramMap.get('date');
+    this.dateFromPath = new Date(this.stringDateFromPath);
+    this.actualDate = new Date();
+
+    if (this.dateFromPath <= this.actualDate) {
+      this.isDateOk = false;
+    }
 
     this.doctorService.getAllDoctors().subscribe(value => {
       this.doctors = value;
@@ -36,7 +45,7 @@ export class PatientHoursPickerComponent implements OnInit {
         this.doctorDates = value;
 
         for (let i = 0; i < this.doctorDates.days.length; i++) {
-          if (this.doctorDates.days[i].date === this.date) {
+          if (this.doctorDates.days[i].date === this.stringDateFromPath) {
             this.doctorHours = this.doctorDates.days[i].listOfHours;
             console.log(this.doctorHours);
           }

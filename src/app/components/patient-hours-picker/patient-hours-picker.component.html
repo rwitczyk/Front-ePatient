@@ -1,33 +1,39 @@
 <app-navbar></app-navbar>
 
 <div class="div-center">
-  <h4>{{date}}</h4>
+  <h4>{{dateFromPath | date:'dd-MM-yyyy'}}</h4>
 
-  Wybierz doktora:
-  <label>
-    <select class="browser-default custom-select" (change)="selectOption()" [(ngModel)]="selectedDoctorId">
-      <option></option>
-      <option [value]="doctor.doctorId" *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
-    </select>
-  </label>
+  <div *ngIf="isDateOk; else incorrectDate">
+    Wybierz doktora:
+    <label>
+      <select class="browser-default custom-select" (change)="selectOption()" [(ngModel)]="selectedDoctorId">
+        <option></option>
+        <option [value]="doctor.doctorId" *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
+      </select>
+    </label>
 
-  <table mdbTable>
-    <thead class="blue white-text">
-    <tr>
-      <th *ngFor="let header of tableHeaders" scope="col">{{header}}</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let element of doctorHours">
-      <th mdbTableRow scope="row">{{element.time}}</th>
-      <td>
-        <div *ngIf="element.isBusy === 'false'; else elseBlock">Wolne</div>
-        <ng-template #elseBlock>Zajete</ng-template>
-      </td>
-      <td>
-        <button *ngIf="element.isBusy === 'false'" class="btn btn-info">Rezerwuj</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+    <table mdbTable>
+      <thead class="blue white-text">
+      <tr>
+        <th *ngFor="let header of tableHeaders" scope="col">{{header}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let element of doctorHours">
+        <th mdbTableRow scope="row">{{element.time}}</th>
+        <td>
+          <div *ngIf="element.isBusy === 'false'; else elseBlock">Wolne</div>
+          <ng-template #elseBlock>Zajete</ng-template>
+        </td>
+        <td>
+          <button *ngIf="element.isBusy === 'false'" class="btn btn-info">Rezerwuj</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #incorrectDate>
+    <h3>Nie możesz zarezerwować wizyty dla tej daty.</h3>
+  </ng-template>
+
 </div>
