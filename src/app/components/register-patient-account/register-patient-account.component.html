@@ -3,11 +3,8 @@
 <div style="width: 50%; margin-left: 25%">
   <form class="text-center border border-light p-5">
 
-    <p class="h4 mb-4">Stwórz konto</p>
+    <p class="h4 mb-4">Stwórz konto pacjenta</p>
 
-    <mat-tab-group animationDuration="10ms">
-
-      <mat-tab label="Pacjent">
         <div class="formInside" [formGroup]="patientForm" *ngIf="patientForm">
           <div class="form-row">
 
@@ -114,116 +111,6 @@
           <button class="btn btn-info my-4 btn-block" (click)="registerPatient()">Zarejestruj</button>
 
         </div>
-      </mat-tab>
-
-
-      <mat-tab label="Lekarz">
-        <div class="formInside" [formGroup]="doctorForm" *ngIf="doctorForm">
-          <div class="form-row">
-
-            <!-- First name -->
-            <div class="col">
-              <div class="md-form">
-                <input mdbInput type="text" id="doctorFirstName" class="form-control mb-4"
-                       formControlName="doctorFirstNameForm">
-                <label for="doctorFirstName">Imię</label>
-                <mdb-error *ngIf="doctorForm.get('doctorFirstNameForm').invalid && (doctorForm.get('doctorFirstNameForm').dirty ||
-                 doctorForm.get('doctorFirstNameForm').touched)">Nieprawidłowe imię
-                </mdb-error>
-                <mdb-success *ngIf="doctorForm.get('doctorFirstNameForm').valid && (doctorForm.get('doctorFirstNameForm').dirty ||
-                 doctorForm.get('doctorFirstNameForm').touched)">Poprawnie
-                </mdb-success>
-              </div>
-            </div>
-
-
-            <!-- Last name -->
-            <div class="col">
-              <div class="md-form">
-                <input mdbInput type="text" id="doctorLastName" class="form-control mb-4"
-                       formControlName="doctorLastNameForm">
-                <label for="doctorLastName">Nazwisko</label>
-                <mdb-error *ngIf="doctorForm.get('doctorLastNameForm').invalid && (doctorForm.get('doctorLastNameForm').dirty ||
-                 doctorForm.get('doctorLastNameForm').touched)">Nieprawidłowe nazwisko
-                </mdb-error>
-                <mdb-success *ngIf="doctorForm.get('doctorLastNameForm').valid && (doctorForm.get('doctorLastNameForm').dirty ||
-                 doctorForm.get('doctorLastNameForm').touched)">Poprawnie
-                </mdb-success>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- E-mail -->
-          <div class="md-form">
-            <input mdbInput type="email" id="doctorEmail" class="form-control mb-4" formControlName="doctorEmailForm">
-            <label for="doctorEmail">E-mail</label>
-            <mdb-error *ngIf="doctorForm.get('doctorEmailForm').invalid && (doctorForm.get('doctorEmailForm').dirty ||
-                 doctorForm.get('doctorEmailForm').touched)">Nieprawidłowy e-mail
-            </mdb-error>
-            <mdb-success *ngIf="doctorForm.get('doctorEmailForm').valid && (doctorForm.get('doctorEmailForm').dirty ||
-                 doctorForm.get('doctorEmailForm').touched)">Poprawnie
-            </mdb-success>
-          </div>
-
-
-          <!-- Password -->
-          <div class="md-form">
-            <input mdbInput type="text" id="doctorPassword" class="form-control mb-4"
-                   formControlName="doctorPasswordForm">
-            <label for="doctorPassword">Hasło</label>
-            <mdb-error *ngIf="doctorForm.get('doctorPasswordForm').invalid && (doctorForm.get('doctorPasswordForm').dirty ||
-                 doctorForm.get('doctorPasswordForm').touched)">Nieprawidłowe hasło
-            </mdb-error>
-            <mdb-success *ngIf="doctorForm.get('doctorPasswordForm').valid && (doctorForm.get('doctorPasswordForm').dirty ||
-                 doctorForm.get('doctorPasswordForm').touched)">Poprawnie
-            </mdb-success>
-          </div>
-
-
-          <!-- Doctor Profession -->
-          <div class="md-form">
-            <input mdbInput type="text" id="doctorProfession" class="form-control mb-4"
-                   formControlName="doctorProfessionForm">
-            <label for="doctorProfession">Zawód</label>
-            <mdb-error *ngIf="doctorForm.get('doctorProfessionForm').invalid && (doctorForm.get('doctorProfessionForm').dirty ||
-                 doctorForm.get('doctorProfessionForm').touched)">Nieprawidłowy zawód
-            </mdb-error>
-            <mdb-success *ngIf="doctorForm.get('doctorProfessionForm').valid && (doctorForm.get('doctorProfessionForm').dirty ||
-                 doctorForm.get('doctorProfessionForm').touched)">Poprawnie
-            </mdb-success>
-          </div>
-
-
-          <!-- Room Number -->
-          <div class="md-form">
-            <input mdbInput type="email" id="doctorRoomNumber" formControlName="doctorRoomNumberForm"
-                   class="form-control mb-4">
-            <label for="doctorRoomNumber">Numer pokoju</label>
-          </div>
-
-
-          <!-- Phone number -->
-          <div class="md-form">
-            <input mdbInput type="text" id="doctorPhoneNumber" formControlName="doctorPhoneNumberForm"
-                   class="form-control mb-4">
-            <label for="doctorPhoneNumber">Numer telefonu</label>
-            <mdb-error *ngIf="doctorForm.get('doctorPhoneNumberForm').invalid && (doctorForm.get('doctorPhoneNumberForm').dirty ||
-                 doctorForm.get('doctorPhoneNumberForm').touched)">Niepoprawny numer telefonu
-            </mdb-error>
-            <mdb-success *ngIf="doctorForm.get('doctorPhoneNumberForm').valid && (doctorForm.get('doctorPhoneNumberForm').dirty ||
-                 doctorForm.get('doctorPhoneNumberForm').touched)">Poprawnie
-            </mdb-success>
-          </div>
-
-          <!-- Sign up button -->
-          <button class="btn btn-info my-4 btn-block" (click)="registerDoctor()">Zarejestruj</button>
-
-        </div>
-      </mat-tab>
-    </mat-tab-group>
-
 
   </form>
-  <!-- Default form register -->
 </div>

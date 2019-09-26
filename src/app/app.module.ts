@@ -14,7 +14,7 @@ import {
 import {HomeComponent} from './components/home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {LogInComponent} from './components/log-in/log-in.component';
-import {RegisterAccountComponent} from './components/register-account/register-account.component';
+import {RegisterPatientAccountComponent} from './components/register-patient-account/register-patient-account.component';
 import {ForgotPasswordComponent} from './components/forgot-password/forgot-password.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
@@ -24,6 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {PatientDatePickerComponent} from './components/patient-date-picker/patient-date-picker.component';
 import {FullCalendarModule} from '@fullcalendar/angular';
 import {PatientHoursPickerComponent} from './components/patient-hours-picker/patient-hours-picker.component';
+import {RegisterDoctorAccountComponent} from './components/register-doctor-account/register-doctor-account.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {PatientHoursPickerComponent} from './components/patient-hours-picker/pat
     NavbarComponent,
     HomeComponent,
     LogInComponent,
-    RegisterAccountComponent,
+    RegisterPatientAccountComponent,
+    RegisterDoctorAccountComponent,
     ForgotPasswordComponent,
     PatientDatePickerComponent,
     PatientHoursPickerComponent,
