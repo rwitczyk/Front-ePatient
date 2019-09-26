@@ -2,3 +2,17 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~@fullcalendar/core/main.css';
 @import '~@fullcalendar/daygrid/main.css';
+
+@media (max-width: 992px) {
+  .form-container {
+    width: 80%;
+    margin:auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .form-container {
+    width: 50%;
+    margin:auto;
+  }
+}

@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
 <!-- Default form register -->
-<div style="width: 50%; margin-left: 25%">
+<div class="form-container">
   <form class="text-center border border-light p-5">
 
     <p class="h4 mb-4">Stwórz konto pacjenta</p>
 
-        <div class="formInside" [formGroup]="patientForm" *ngIf="patientForm">
+        <div [formGroup]="patientForm" *ngIf="patientForm">
           <div class="form-row">
 
             <!-- First name -->
