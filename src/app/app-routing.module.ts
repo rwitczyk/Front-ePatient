@@ -7,6 +7,7 @@ import {ForgotPasswordComponent} from './components/forgot-password/forgot-passw
 import {PatientDatePickerComponent} from './components/patient-date-picker/patient-date-picker.component';
 import {PatientHoursPickerComponent} from './components/patient-hours-picker/patient-hours-picker.component';
 import {RegisterDoctorAccountComponent} from './components/register-doctor-account/register-doctor-account.component';
+import {DoctorVisitsDatePickerComponent} from './components/doctor-visits-date-picker/doctor-visits-date-picker.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'register-doctor', component: RegisterDoctorAccountComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'patient-date-picker', component: PatientDatePickerComponent},
-  {path: 'patient-hours-picker/:date', component: PatientHoursPickerComponent}
+  {path: 'patient-hours-picker/:date', component: PatientHoursPickerComponent},
+  {path: 'doctor-visits-date-picker', component: DoctorVisitsDatePickerComponent}
 ];
 
 @NgModule({

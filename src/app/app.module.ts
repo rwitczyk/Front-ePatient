@@ -25,6 +25,7 @@ import {PatientDatePickerComponent} from './components/patient-date-picker/patie
 import {FullCalendarModule} from '@fullcalendar/angular';
 import {PatientHoursPickerComponent} from './components/patient-hours-picker/patient-hours-picker.component';
 import {RegisterDoctorAccountComponent} from './components/register-doctor-account/register-doctor-account.component';
+import {DoctorVisitsDatePickerComponent} from './components/doctor-visits-date-picker/doctor-visits-date-picker.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {RegisterDoctorAccountComponent} from './components/register-doctor-accou
     ForgotPasswordComponent,
     PatientDatePickerComponent,
     PatientHoursPickerComponent,
+    DoctorVisitsDatePickerComponent,
   ],
   imports: [
     BrowserModule,
