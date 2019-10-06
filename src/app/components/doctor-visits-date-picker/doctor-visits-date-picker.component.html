@@ -1,11 +1,12 @@
 <app-navbar></app-navbar>
 <div class="form-container calendar">
-  <full-calendar class="my-style"
+  <full-calendar
     defaultView="dayGridMonth"
     (dateClick)="handleDateClick($event)"
     [weekends]="false"
     [plugins]="calendarPlugins"
     [events]="calendarEvents"
+    [eventClassName]="eventMyStyle"
     deepChangeDetection="true"
   >
   </full-calendar>

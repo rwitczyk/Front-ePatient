@@ -11,6 +11,7 @@ export class DoctorVisitsDatePickerComponent implements OnInit {
   // https://fullcalendar.io/docs/angular
   calendarPlugins = [dayGridPlugin, interactionPlugin];
   calendarEvents = [];
+  eventMyStyle = 'my-calendar-event-style';
 
   constructor() {
   }
@@ -20,7 +21,7 @@ export class DoctorVisitsDatePickerComponent implements OnInit {
 
   handleDateClick(arg) {
     this.calendarEvents.push({
-    title: '8:00 - 14:00', date: arg.dateStr
+      title: '8:00 - 14:00', date: arg.dateStr
     });
   }
 }
