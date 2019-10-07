@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+<div class="component-background-image"></div>
+
+<div class="choose-doctor-section form-container">
+  Wybierz doktora:
+  <label>
+    <select class="browser-default custom-select" (change)="selectOption()" [(ngModel)]="selectedDoctorId">
+      <option></option>
+      <option [value]="doctor.doctorId" *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
+    </select>
+  </label>
+  <div style="margin-top: 2rem;">Stwórz harmonogram pracy doktora:</div>
+  <hr>
+</div>
+
+<div class="doctor-management-calendar form-container">
+  <full-calendar
+    defaultView="dayGridMonth"
+    (dateClick)="handleDateClick($event)"
+    [weekends]="false"
+    [plugins]="calendarPlugins"
+    [events]="calendarEvents"
+    [eventClassName]="eventMyStyle"
+    deepChangeDetection="true"
+  >
+  </full-calendar>
+</div>

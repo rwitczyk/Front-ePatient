@@ -21,6 +21,8 @@ export class PatientHoursPickerComponent implements OnInit {
   actualDate: Date;
   isDateOk = true;
 
+  time = {hour: 10, minute: 30};
+
   constructor(private route: ActivatedRoute, private doctorService: DoctorService) {
   }
 

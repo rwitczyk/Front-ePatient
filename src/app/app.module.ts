@@ -26,6 +26,8 @@ import {FullCalendarModule} from '@fullcalendar/angular';
 import {PatientHoursPickerComponent} from './components/patient-hours-picker/patient-hours-picker.component';
 import {RegisterDoctorAccountComponent} from './components/register-doctor-account/register-doctor-account.component';
 import {DoctorVisitsDatePickerComponent} from './components/doctor-visits-date-picker/doctor-visits-date-picker.component';
+import {NgbTimepickerModule} from '@ng-bootstrap/ng-bootstrap';
+import {DoctorsManagementByAdminComponent} from './components/doctors-management-by-admin/doctors-management-by-admin.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import {DoctorVisitsDatePickerComponent} from './components/doctor-visits-date-p
     PatientDatePickerComponent,
     PatientHoursPickerComponent,
     DoctorVisitsDatePickerComponent,
+    DoctorsManagementByAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,7 @@ import {DoctorVisitsDatePickerComponent} from './components/doctor-visits-date-p
       easeTime: 500,
       resetTimeoutOnDuplicate: true
     }),
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule, NgbTimepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

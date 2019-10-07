@@ -11,6 +11,7 @@ import {Router} from '@angular/router'; // for dateClick
 export class PatientDatePickerComponent implements OnInit {
   // https://fullcalendar.io/docs/angular
   calendarPlugins = [dayGridPlugin, interactionPlugin];
+  bgColor = 'white';
 
   constructor(private router: Router) {
   }

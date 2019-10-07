@@ -1,10 +1,18 @@
 <app-navbar></app-navbar>
+
+<div class="component-background-image"></div>
+
+<div class="form-container" style="margin-top: 1.5rem;">
+  <h3>Wybierz planowany termin wizyty:</h3>
+</div>
+
 <div class="form-container calendar">
   <full-calendar
     defaultView="dayGridMonth"
     (dateClick)="handleDateClick($event)"
     [weekends]="false"
     [plugins]="calendarPlugins"
+    [eventBackgroundColor]="bgColor"
   >
   </full-calendar>
 </div>

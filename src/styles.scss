@@ -17,6 +17,23 @@
   }
 }
 
+.component-background-image {
+  background-image: url("assets/components-background-image.jpg");
+
+  opacity: 0.25;
+  filter: alpha(opacity=25); /* For IE8 and earlier */
+  width: 100%;
+  height: 41rem;
+
+  /* Center and scale the image nicely */
+  position: fixed;
+  z-index: -9999;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+//CALENDAR EVENT STYLE
 .my-calendar-event-style {
   font-weight: bolder;
   font-size: 0.9rem;
@@ -26,9 +43,15 @@
   border-color: transparent;
 }
 
+//CALENDAR DAY NUMBER
 .calendar .fc-day-number{
   font-size: 1.05rem !important;
   font-weight: bold;
   color: #666666;
   background-color: #f7f7f7;
+}
+
+//CALENDAR BACKGROUND COLOR
+.fc-view-container {
+  background-color: rgba(255, 255, 255, 0.61);
 }

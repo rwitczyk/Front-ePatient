@@ -1,16 +1,28 @@
 <app-navbar></app-navbar>
 
-<div class="div-center">
+<div class="component-background-image"></div>
+
+<div class="form-container" style="margin-top: 1.5rem">
   <h4>{{dateFromPath | date:'dd-MM-yyyy'}}</h4>
 
   <div *ngIf="isDateOk; else incorrectDate">
-    Wybierz doktora:
-    <label>
-      <select class="browser-default custom-select" (change)="selectOption()" [(ngModel)]="selectedDoctorId">
-        <option></option>
-        <option [value]="doctor.doctorId" *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
-      </select>
-    </label>
+    <div>
+      Wybierz doktora:
+      <label>
+        <select class="browser-default custom-select" (change)="selectOption()" [(ngModel)]="selectedDoctorId">
+          <option></option>
+          <option [value]="doctor.doctorId" *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="hour-picker-container">
+      Wyślij zapytanie o wizytę na wybraną godzinę:
+      <div>
+        <ngb-timepicker [(ngModel)]="time" [minuteStep]="5" style="float:left"></ngb-timepicker>
+        <button mdbBtn style="margin: 3.3rem 1rem;" class="btn btn-info">Wyślij</button>
+      </div>
+    </div>
 
     <table mdbTable>
       <thead class="blue white-text">

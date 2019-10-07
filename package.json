@@ -25,6 +25,8 @@
     "@fullcalendar/angular": "^4.3.1",
     "@fullcalendar/core": "^4.3.1",
     "@fullcalendar/daygrid": "^4.3.0",
+    "@fullcalendar/interaction": "latest",
+    "@ng-bootstrap/ng-bootstrap": "^5.1.1",
     "@types/chart.js": "^2.7.56",
     "angular-bootstrap-md": "^8.1.0",
     "angular-material": "^1.1.19",
@@ -34,8 +36,7 @@
     "ngx-toastr": "^10.0.4",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
-    "zone.js": "~0.9.1",
-    "@fullcalendar/interaction": "latest"
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.801.2",
