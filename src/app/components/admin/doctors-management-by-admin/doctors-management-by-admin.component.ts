@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {DoctorService} from '../../services/doctor.service';
-import {DoctorModel} from '../../models/DoctorModel';
+import {DoctorService} from '../../../services/doctor.service';
+import {DoctorModel} from '../../../models/DoctorModel';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 

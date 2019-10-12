@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {DoctorService} from '../../services/doctor.service';
-import {DoctorModel} from '../../models/DoctorModel';
-import {DoctorDatesModel} from '../../models/DoctorDatesModel';
-import {HourModel} from '../../models/HourModel';
+import {DoctorService} from '../../../services/doctor.service';
+import {DoctorModel} from '../../../models/DoctorModel';
+import {DoctorDatesModel} from '../../../models/DoctorDatesModel';
+import {HourModel} from '../../../models/HourModel';
+import {BookAVisitModel} from '../../../models/BookAVisitModel';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-patient-hours-picker',
@@ -19,11 +21,12 @@ export class PatientHoursPickerComponent implements OnInit {
   selectedDoctorId: number;
   doctorHours: HourModel[];
   actualDate: Date;
+  bookAVisitModel: BookAVisitModel;
   isDateOk = true;
 
   time = {hour: 10, minute: 30};
 
-  constructor(private route: ActivatedRoute, private doctorService: DoctorService) {
+  constructor(private route: ActivatedRoute, private doctorService: DoctorService, private toastrService: ToastrService) {
   }
 
   ngOnInit() {
@@ -54,5 +57,18 @@ export class PatientHoursPickerComponent implements OnInit {
         }
       });
     }
+  }
+
+  sendQuestionAboutReservation(visitDescription: string) {
+    this.bookAVisitModel = new BookAVisitModel();
+    this.bookAVisitModel.additionalVisitDescription = visitDescription;
+    this.bookAVisitModel.doctorId = this.selectedDoctorId;
+    this.bookAVisitModel.patientId = 2;
+    this.bookAVisitModel.visitHour = this.time.hour;
+    this.bookAVisitModel.visitMinute = this.time.minute;
+    this.bookAVisitModel.visitDate = this.stringDateFromPath;
+
+    this.doctorService.sendQuestionAboutReservationVisit(this.bookAVisitModel);
+    this.toastrService.success('Wysłano prośbę');
   }
 }

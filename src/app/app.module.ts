@@ -21,13 +21,15 @@ import {ToastrModule} from 'ngx-toastr';
 import {MatTabsModule} from '@angular/material/tabs';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {PatientDatePickerComponent} from './components/patient-date-picker/patient-date-picker.component';
+import {PatientDatePickerComponent} from './components/patient/patient-date-picker/patient-date-picker.component';
 import {FullCalendarModule} from '@fullcalendar/angular';
-import {PatientHoursPickerComponent} from './components/patient-hours-picker/patient-hours-picker.component';
-import {RegisterDoctorAccountComponent} from './components/register-doctor-account/register-doctor-account.component';
-import {DoctorVisitsDatePickerComponent} from './components/doctor-visits-date-picker/doctor-visits-date-picker.component';
+import {PatientHoursPickerComponent} from './components/patient/patient-hours-picker/patient-hours-picker.component';
+import {RegisterDoctorAccountComponent} from './components/admin/register-doctor-account/register-doctor-account.component';
+import {DoctorVisitsDatePickerComponent} from './components/doctor/doctor-visits-date-picker/doctor-visits-date-picker.component';
 import {NgbTimepickerModule} from '@ng-bootstrap/ng-bootstrap';
-import {DoctorsManagementByAdminComponent} from './components/doctors-management-by-admin/doctors-management-by-admin.component';
+import {DoctorsManagementByAdminComponent} from './components/admin/doctors-management-by-admin/doctors-management-by-admin.component';
+import {DoctorVisitsForOneDayComponent} from './components/doctor/doctor-visits-for-one-day/doctor-visits-for-one-day.component';
+import {PanelPatientAccountComponent} from './components/patient/panel-patient-account/panel-patient-account.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import {DoctorsManagementByAdminComponent} from './components/doctors-management
     PatientHoursPickerComponent,
     DoctorVisitsDatePickerComponent,
     DoctorsManagementByAdminComponent,
+    DoctorVisitsForOneDayComponent,
+    PanelPatientAccountComponent,
   ],
   imports: [
     BrowserModule,

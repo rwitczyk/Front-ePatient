@@ -16,11 +16,21 @@
       </label>
     </div>
 
+    <hr>
+
     <div class="hour-picker-container">
       Wyślij zapytanie o wizytę na wybraną godzinę:
-      <div>
-        <ngb-timepicker [(ngModel)]="time" [minuteStep]="5" style="float:left"></ngb-timepicker>
-        <button mdbBtn style="margin: 3.3rem 1rem;" class="btn btn-info">Wyślij</button>
+      <div style="display: inline-flex; margin-top: 0.5rem">
+        <ngb-timepicker [(ngModel)]="time" [minuteStep]="5"></ngb-timepicker>
+
+        <span style="margin-left: 1rem; margin-top: 0.5rem">
+          <label for="descriptionVisitTextArea" style="display: block">Dodatkowy opis wizyty:</label>
+          <textarea id="descriptionVisitTextArea" #textAreaElement rows="3"></textarea>
+        </span>
+
+        <button mdbBtn style="margin: 3.3rem 1rem; max-height: 3.1rem" (click)="sendQuestionAboutReservation(textAreaElement.value)"
+                class="btn btn-info">Wyślij
+        </button>
       </div>
     </div>
 
@@ -38,7 +48,9 @@
           <ng-template #elseBlock>Zajete</ng-template>
         </td>
         <td>
-          <button *ngIf="element.isBusy === 'false'" class="btn btn-info">Rezerwuj</button>
+          <button *ngIf="element.isBusy === 'false'" class="btn btn-info">
+            Rezerwuj
+          </button>
         </td>
       </tr>
       </tbody>

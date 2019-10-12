@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {DoctorModel} from '../models/DoctorModel';
 import {DoctorDatesModel} from '../models/DoctorDatesModel';
+import {BookAVisitModel} from '../models/BookAVisitModel';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,9 @@ export class DoctorService {
 
   getDoctorDatesById(id: number) {
     return this.http.get<DoctorDatesModel>(environment.backendUrl + '/api/doctor/' + id);
+  }
+
+  sendQuestionAboutReservationVisit(bookAVisit: BookAVisitModel) {
+    return this.http.post<BookAVisitModel>(environment.backendUrl + '/api/doctor/question-about-book-a-visit', bookAVisit);
   }
 }

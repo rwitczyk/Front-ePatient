@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
-import {DoctorModel} from '../../models/DoctorModel';
-import {DoctorService} from '../../services/doctor.service';
+import {DoctorModel} from '../../../models/DoctorModel';
+import {DoctorService} from '../../../services/doctor.service';
 
 @Component({
   selector: 'app-register-account',

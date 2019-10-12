@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import {DoctorService} from '../../../services/doctor.service';
+import {DoctorDatesModel} from '../../../models/DoctorDatesModel';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-doctor-visits-date-picker',
@@ -17,11 +20,18 @@ export class DoctorVisitsDatePickerComponent implements OnInit {
   actualMonth: string;
   actualYear: string;
 
-  constructor() {
+  doctorDatesModel: DoctorDatesModel;
+
+  constructor(private doctorService: DoctorService, private router: Router) {
   }
 
   ngOnInit() {
     this.actualDate = new Date();
+    this.doctorService.getDoctorDatesById(5).subscribe(value => {
+        this.doctorDatesModel = value;
+      }
+    );
+    // TODO update calendar Events title
 
     for (let i = 0; i < 30; i++) {
       this.actualDay = (this.actualDate.getDate() + i).toString();
@@ -40,6 +50,6 @@ export class DoctorVisitsDatePickerComponent implements OnInit {
 
   handleDateClick(arg) {
     console.log(arg.dateStr);
-    // navigate to another component
+    this.router.navigate(['doctor-visits-for-one-day/' + arg.dateStr]);
   }
 }
