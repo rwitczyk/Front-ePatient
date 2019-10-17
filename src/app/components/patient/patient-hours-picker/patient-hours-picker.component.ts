@@ -68,7 +68,8 @@ export class PatientHoursPickerComponent implements OnInit {
     this.bookAVisitModel.visitMinute = this.time.minute;
     this.bookAVisitModel.visitDate = this.stringDateFromPath;
 
-    this.doctorService.sendQuestionAboutReservationVisit(this.bookAVisitModel);
-    this.toastrService.success('Wysłano prośbę');
+    this.doctorService.sendQuestionAboutReservationVisit(this.bookAVisitModel).subscribe(() => {
+      this.toastrService.success('Wysłano prośbę');
+    }, error => this.toastrService.error(error.error.message));
   }
 }

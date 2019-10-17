@@ -42,9 +42,7 @@ export class RegisterDoctorAccountComponent implements OnInit {
 
       this.doctorService.addDoctorAccount(this.doctorModel).subscribe(() => {
         this.toastr.success('Pomyślnie utworzono konto doktora!');
-      }, () => {
-        this.toastr.error('Błąd dodawania konta doktora');
-      });
+      }, error => this.toastr.error(error.error.message));
     } else {
       this.toastr.error('Sprawdź dane w formularzu');
     }

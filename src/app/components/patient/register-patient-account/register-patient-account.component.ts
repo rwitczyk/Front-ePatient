@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
-import {PatientModel} from '../../models/PatientModel';
-import {PatientService} from '../../services/patient.service';
+import {PatientModel} from '../../../models/PatientModel';
+import {PatientService} from '../../../services/patient.service';
 
 @Component({
   selector: 'app-register-account',
@@ -45,7 +45,7 @@ export class RegisterPatientAccountComponent implements OnInit {
 
       this.patientService.addPatientAccount(this.patientModel).subscribe(() => {
         this.toastr.success('Pomyślnie utworzono konto pacjenta');
-      }, () => this.toastr.error('Błąd dodawania konta pacjenta'));
+      }, error => this.toastr.error(error.error.message));
 
     } else {
       this.toastr.error('Sprawdź dane w formularzu');

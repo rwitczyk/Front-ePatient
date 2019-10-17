@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './components/home/home.component';
 import {LogInComponent} from './components/log-in/log-in.component';
-import {RegisterPatientAccountComponent} from './components/register-patient-account/register-patient-account.component';
+import {RegisterPatientAccountComponent} from './components/patient/register-patient-account/register-patient-account.component';
 import {ForgotPasswordComponent} from './components/forgot-password/forgot-password.component';
 import {PatientDatePickerComponent} from './components/patient/patient-date-picker/patient-date-picker.component';
 import {PatientHoursPickerComponent} from './components/patient/patient-hours-picker/patient-hours-picker.component';

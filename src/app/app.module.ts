@@ -14,13 +14,13 @@ import {
 import {HomeComponent} from './components/home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {LogInComponent} from './components/log-in/log-in.component';
-import {RegisterPatientAccountComponent} from './components/register-patient-account/register-patient-account.component';
+import {RegisterPatientAccountComponent} from './components/patient/register-patient-account/register-patient-account.component';
 import {ForgotPasswordComponent} from './components/forgot-password/forgot-password.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
 import {MatTabsModule} from '@angular/material/tabs';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {PatientDatePickerComponent} from './components/patient/patient-date-picker/patient-date-picker.component';
 import {FullCalendarModule} from '@fullcalendar/angular';
 import {PatientHoursPickerComponent} from './components/patient/patient-hours-picker/patient-hours-picker.component';
@@ -30,6 +30,7 @@ import {NgbTimepickerModule} from '@ng-bootstrap/ng-bootstrap';
 import {DoctorsManagementByAdminComponent} from './components/admin/doctors-management-by-admin/doctors-management-by-admin.component';
 import {DoctorVisitsForOneDayComponent} from './components/doctor/doctor-visits-for-one-day/doctor-visits-for-one-day.component';
 import {PanelPatientAccountComponent} from './components/patient/panel-patient-account/panel-patient-account.component';
+import {HttpHeadersInterceptor} from './http-headers-interceptor';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,13 @@ import {PanelPatientAccountComponent} from './components/patient/panel-patient-a
     }),
     FormsModule, ReactiveFormsModule, NgbTimepickerModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpHeadersInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
