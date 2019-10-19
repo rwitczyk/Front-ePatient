@@ -25,7 +25,7 @@ export class RegisterPatientAccountComponent implements OnInit {
       patientLastNameForm: [null, Validators.required],
       patientPasswordForm: [null, Validators.required],
       patientPeselForm: [null, [Validators.pattern('[0-9]{11}'), Validators.required]],
-      patientDateOfBirthForm: [null, Validators.required],
+      patientDateOfBirthForm: [null, [Validators.pattern('[0-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]'), Validators.required]],
       patientPhoneNumberForm: [null, [Validators.pattern('[0-9]{9}'), Validators.required]]
     });
   }

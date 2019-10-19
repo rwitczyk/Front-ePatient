@@ -1,5 +1,5 @@
 import {AppComponent} from './app.component';
-import {NavbarComponent} from './components/navbarUser/navbar.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {

@@ -3,6 +3,7 @@ import {LoginModel} from '../../models/LoginModel';
 import {AccountService} from '../../services/account.service';
 import {ToastrService} from 'ngx-toastr';
 import {SessionModel} from '../../models/SessionModel';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
@@ -13,7 +14,7 @@ export class LogInComponent implements OnInit {
   loginModel: LoginModel;
   sessionModel: SessionModel;
 
-  constructor(private accountService: AccountService, private toastr: ToastrService) {
+  constructor(private accountService: AccountService, private toastr: ToastrService, private router: Router) {
   }
 
   ngOnInit() {
@@ -29,6 +30,8 @@ export class LogInComponent implements OnInit {
       sessionStorage.setItem('accountId', this.sessionModel.accountId);
       sessionStorage.setItem('role', this.sessionModel.role);
       sessionStorage.setItem('jwtToken', this.sessionModel.jwtToken);
+      this.router.navigate(['/home']);
+
     }, () => this.toastr.error('Niepoprawny login lub hasło'));
   }
 }

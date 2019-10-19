@@ -74,7 +74,7 @@
           <div class="md-form">
             <input mdbInput type="text" id="patientDateOfBirth" class="form-control mb-4"
                    formControlName="patientDateOfBirthForm">
-            <label for="patientDateOfBirth">Data urodzenia</label>
+            <label for="patientDateOfBirth">Data urodzenia [rrrr-mm-dd]</label>
             <mdb-error *ngIf="patientForm.get('patientDateOfBirthForm').invalid && (patientForm.get('patientDateOfBirthForm').dirty ||
                  patientForm.get('patientDateOfBirthForm').touched)">Nieprawidłowa data urodzenia
             </mdb-error>
