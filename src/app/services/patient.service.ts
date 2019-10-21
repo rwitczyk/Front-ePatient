@@ -14,4 +14,8 @@ export class PatientService {
   addPatientAccount(patient: PatientModel) {
     return this.http.post(`${environment.backendUrl}/api/patient/add`, patient);
   }
+
+  getPatientById(patientId: string) {
+    return this.http.get<PatientModel>(`${environment.backendUrl}/api/patient/id/` + patientId);
+  }
 }

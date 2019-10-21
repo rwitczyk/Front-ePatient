@@ -46,7 +46,7 @@ export class PatientHoursPickerComponent implements OnInit {
   selectOption() {
     console.log('Doctor ID: ' + this.selectedDoctorId);
     if (this.selectedDoctorId.toString().length > 0) {
-      this.doctorService.getDoctorDatesById(this.selectedDoctorId).subscribe(value => {
+      this.doctorService.getDoctorDatesById(this.selectedDoctorId.toString()).subscribe(value => {
         this.doctorDates = value;
 
         for (let i = 0; i < this.doctorDates.days.length; i++) {

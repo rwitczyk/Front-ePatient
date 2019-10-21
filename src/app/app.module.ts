@@ -29,7 +29,7 @@ import {DoctorVisitsDatePickerComponent} from './components/doctor/doctor-visits
 import {NgbTimepickerModule} from '@ng-bootstrap/ng-bootstrap';
 import {DoctorsManagementByAdminComponent} from './components/admin/doctors-management-by-admin/doctors-management-by-admin.component';
 import {DoctorVisitsForOneDayComponent} from './components/doctor/doctor-visits-for-one-day/doctor-visits-for-one-day.component';
-import {PanelPatientAccountComponent} from './components/patient/panel-patient-account/panel-patient-account.component';
+import {PanelAccountDetailsComponent} from './components/patient/panel-account-details/panel-account-details.component';
 import {HttpHeadersInterceptor} from './http-headers-interceptor';
 
 @NgModule({
@@ -46,7 +46,7 @@ import {HttpHeadersInterceptor} from './http-headers-interceptor';
     DoctorVisitsDatePickerComponent,
     DoctorsManagementByAdminComponent,
     DoctorVisitsForOneDayComponent,
-    PanelPatientAccountComponent,
+    PanelAccountDetailsComponent,
   ],
   imports: [
     BrowserModule,

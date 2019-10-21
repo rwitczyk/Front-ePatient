@@ -10,7 +10,7 @@ import {RegisterDoctorAccountComponent} from './components/admin/register-doctor
 import {DoctorVisitsDatePickerComponent} from './components/doctor/doctor-visits-date-picker/doctor-visits-date-picker.component';
 import {DoctorsManagementByAdminComponent} from './components/admin/doctors-management-by-admin/doctors-management-by-admin.component';
 import {DoctorVisitsForOneDayComponent} from './components/doctor/doctor-visits-for-one-day/doctor-visits-for-one-day.component';
-import {PanelPatientAccountComponent} from './components/patient/panel-patient-account/panel-patient-account.component';
+import {PanelAccountDetailsComponent} from './components/patient/panel-account-details/panel-account-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'doctor-visits-date-picker', component: DoctorVisitsDatePickerComponent},
   {path: 'doctors-management', component: DoctorsManagementByAdminComponent},
   {path: 'doctor-visits-for-one-day/:date', component: DoctorVisitsForOneDayComponent},
-  {path: 'patient-account', component: PanelPatientAccountComponent}
+  {path: 'account-details', component: PanelAccountDetailsComponent}
 ];
 
 @NgModule({

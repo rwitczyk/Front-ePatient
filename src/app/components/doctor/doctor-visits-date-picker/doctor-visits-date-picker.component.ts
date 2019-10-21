@@ -27,7 +27,7 @@ export class DoctorVisitsDatePickerComponent implements OnInit {
 
   ngOnInit() {
     this.actualDate = new Date();
-    this.doctorService.getDoctorDatesById(5).subscribe(value => {
+    this.doctorService.getDoctorDatesById(sessionStorage.getItem('accountId')).subscribe(value => {
         this.doctorDatesModel = value;
       }
     );

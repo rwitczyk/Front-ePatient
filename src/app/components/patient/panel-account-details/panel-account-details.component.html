@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+
+<div class="component-background-image"></div>
+
+<div class="form-container" style="margin-top: 1.5rem">
+  <div class="text-content">
+    <span class="text-header">Imię: </span> <span class="text-value">{{firstName}}</span>
+  </div>
+  <div class="text-content">
+    <span class="text-header">Nazwisko: </span> <span class="text-value">{{lastName}}</span>
+  </div>
+  <div class="text-content">
+    <span class="text-header">Adres email: </span> <span class="text-value">{{emailAdress}}</span>
+  </div>
+
+
+  <div *ngIf="role == 'ROLE_PATIENT'">
+    Tu będą wszystkie wizyty pacjenta
+  </div>
+</div>

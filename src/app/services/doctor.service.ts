@@ -21,8 +21,12 @@ export class DoctorService {
     return this.http.post(`${environment.backendUrl}/api/doctor/add`, doctor);
   }
 
-  getDoctorDatesById(id: number) {
-    return this.http.get<DoctorDatesModel>(environment.backendUrl + '/api/doctor/' + id);
+  getDoctorDatesById(doctorId: string) {
+    return this.http.get<DoctorDatesModel>(environment.backendUrl + '/api/doctor/' + doctorId);
+  }
+
+  getDoctorAccountById(doctorId: string) {
+    return this.http.get<DoctorModel>(environment.backendUrl + '/api/doctor/' + doctorId);
   }
 
   sendQuestionAboutReservationVisit(bookAVisit: BookAVisitModel) {
