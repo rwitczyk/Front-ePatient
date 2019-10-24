@@ -18,4 +18,12 @@ export class PatientService {
   getPatientById(patientId: string) {
     return this.http.get<PatientModel>(`${environment.backendUrl}/api/patient/id/` + patientId);
   }
+
+  getAllPatients() {
+    return this.http.get<PatientModel[]>(environment.backendUrl + '/api/patients');
+  }
+
+  deletePatientById(patientId: number) {
+    return this.http.get(environment.backendUrl + '/api/patient/delete/' + patientId);
+  }
 }

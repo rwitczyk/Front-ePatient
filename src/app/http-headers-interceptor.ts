@@ -14,7 +14,7 @@ export class HttpHeadersInterceptor implements HttpInterceptor {
         Authorization: 'Bearer ' + sessionStorage.getItem('jwtToken'),
         // ContentType: 'application/json',
         // AccessControlAllowMethods: 'POST, GET, OPTIONS, PUT, DELETE',
-        'Access-Control-Allow-Origin': '*',
+        // AccessControlAllowOrigin: '*',
         // AccessControlAllowHeaders: 'Access-Control-Allow-Origin, Content-Type, Accept, Accept-Language, Origin, User-Agent',
         // AccessControlAllowCredentials: 'true'
       }

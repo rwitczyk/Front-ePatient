@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+
+<div class="doctor-management-calendar form-container">
+  <h5 style="margin-top: 2rem;">Stwórz harmonogram pracy doktora:</h5>
+  <hr>
+
+  <full-calendar
+    defaultView="dayGridMonth"
+    (dateClick)="handleDateClick($event)"
+    [weekends]="false"
+    [plugins]="calendarPlugins"
+    [events]="calendarEvents"
+    [eventClassName]="eventMyStyle"
+    deepChangeDetection="true"
+  >
+  </full-calendar>
+</div>

@@ -3,26 +3,28 @@
 <div class="component-background-image"></div>
 
 <div class="choose-doctor-section form-container">
-  Wybierz doktora:
-  <label>
-    <select class="browser-default custom-select" (change)="selectOption()" [(ngModel)]="selectedDoctorId">
-      <option></option>
-      <option [value]="doctor.doctorId" *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
-    </select>
-  </label>
-  <div style="margin-top: 2rem;">Stwórz harmonogram pracy doktora:</div>
-  <hr>
-</div>
 
-<div class="doctor-management-calendar form-container">
-  <full-calendar
-    defaultView="dayGridMonth"
-    (dateClick)="handleDateClick($event)"
-    [weekends]="false"
-    [plugins]="calendarPlugins"
-    [events]="calendarEvents"
-    [eventClassName]="eventMyStyle"
-    deepChangeDetection="true"
-  >
-  </full-calendar>
+  <table mdbTable>
+    <thead>
+    <tr>
+      <th *ngFor="let header of tableHeaders" scope="col">{{header}} </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr mdbTableCol *ngFor="let doctor of doctors">
+      <th scope="row">{{doctor.name}}</th>
+      <td>{{doctor.surname}}</td>
+      <td>{{doctor.profession}}</td>
+      <td>{{doctor.roomNumber}}</td>
+      <td>{{doctor.email}}</td>
+      <td>
+        <button mdbBtn class="btn btn-info" routerLink="/manage-doctor-timetable/{{doctor.doctorId}}">Harmonogram</button>
+      </td>
+      <td>
+        <button mdbBtn class="btn btn-red" (click)="deleteDoctorAccount(doctor.doctorId)">Usuń</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
 </div>

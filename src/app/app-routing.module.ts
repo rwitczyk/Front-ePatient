@@ -11,6 +11,9 @@ import {DoctorVisitsDatePickerComponent} from './components/doctor/doctor-visits
 import {DoctorsManagementByAdminComponent} from './components/admin/doctors-management-by-admin/doctors-management-by-admin.component';
 import {DoctorVisitsForOneDayComponent} from './components/doctor/doctor-visits-for-one-day/doctor-visits-for-one-day.component';
 import {PanelAccountDetailsComponent} from './components/patient/panel-account-details/panel-account-details.component';
+import {PatientManagementByAdminComponent} from './components/admin/patient-management-by-admin/patient-management-by-admin.component';
+import {ManageTimetableDoctorComponent} from './components/admin/manage-timetable-doctor/manage-timetable-doctor.component';
+import {ManageOneDayDoctorTimetableComponent} from './components/admin/manage-one-day-doctor-timetable/manage-one-day-doctor-timetable.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -23,8 +26,11 @@ const routes: Routes = [
   {path: 'patient-hours-picker/:date', component: PatientHoursPickerComponent},
   {path: 'doctor-visits-date-picker', component: DoctorVisitsDatePickerComponent},
   {path: 'doctors-management', component: DoctorsManagementByAdminComponent},
+  {path: 'manage-doctor-timetable/:id', component: ManageTimetableDoctorComponent},
+  {path: 'manage-one-day-doctor-timetable/:id', component: ManageOneDayDoctorTimetableComponent},
   {path: 'doctor-visits-for-one-day/:date', component: DoctorVisitsForOneDayComponent},
-  {path: 'account-details', component: PanelAccountDetailsComponent}
+  {path: 'account-details', component: PanelAccountDetailsComponent},
+  {path: 'patients-management', component: PatientManagementByAdminComponent}
 ];
 
 @NgModule({

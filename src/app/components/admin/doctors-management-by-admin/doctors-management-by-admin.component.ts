@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DoctorService} from '../../../services/doctor.service';
 import {DoctorModel} from '../../../models/DoctorModel';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-doctors-management-by-admin',
@@ -10,29 +9,25 @@ import interactionPlugin from '@fullcalendar/interaction';
   styleUrls: ['./doctors-management-by-admin.component.scss']
 })
 export class DoctorsManagementByAdminComponent implements OnInit {
-  selectedDoctorId: number;
   doctors: DoctorModel[];
-  calendarPlugins = [dayGridPlugin, interactionPlugin];
-  calendarEvents = [];
-  eventMyStyle = 'my-calendar-event-style';
+  tableHeaders = ['Imię', 'Nazwisko', 'Specjalizacja', 'Numer pokoju', 'Email', ''];
 
-  constructor(private doctorService: DoctorService) {
+  constructor(private doctorService: DoctorService, private toastr: ToastrService) {
   }
 
   ngOnInit() {
-
     this.doctorService.getAllDoctors().subscribe(value => {
       this.doctors = value;
     });
   }
 
-  selectOption() {
-    console.log('Doctor ID: ' + this.selectedDoctorId);
-    if (this.selectedDoctorId.toString().length > 0) {
-      // update doctor timetable
-    }
-  }
-
-  handleDateClick($event) {
+  deleteDoctorAccount(doctorId: number) {
+    this.doctorService.deleteDoctorAccount(doctorId).subscribe(value => {
+      this.toastr.success('Usunięto konto doktora');
+      this.ngOnInit();
+      }, error1 => {
+      this.toastr.error(error1.error.message);
+      }
+    );
   }
 }

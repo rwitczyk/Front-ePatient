@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+
+<div class="component-background-image"></div>
+
+<div class="form-container" style="margin-top: 2rem;">
+
+  <table mdbTable>
+    <thead>
+    <tr>
+      <th *ngFor="let header of tableHeaders" scope="col">{{header}} </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr mdbTableCol *ngFor="let patient of patients">
+      <th scope="row">{{patient.name}}</th>
+      <td>{{patient.surname}}</td>
+      <td>{{patient.pesel}}</td>
+      <td>{{patient.phoneNumber}}</td>
+      <td>{{patient.email}}</td>
+      <td>
+        <button mdbBtn class="btn btn-red" (click)="deleteDoctorAccount(patient.patientId)">Usuń</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

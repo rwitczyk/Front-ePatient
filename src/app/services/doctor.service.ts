@@ -32,4 +32,8 @@ export class DoctorService {
   sendQuestionAboutReservationVisit(bookAVisit: BookAVisitModel) {
     return this.http.post<BookAVisitModel>(environment.backendUrl + '/api/doctor/question-about-book-a-visit', bookAVisit);
   }
+
+  deleteDoctorAccount(selectedDoctorId: number) {
+    return this.http.get(environment.backendUrl + '/api/doctor/delete/' + selectedDoctorId);
+  }
 }
