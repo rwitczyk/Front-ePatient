@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {DoctorService} from '../../../services/doctor.service';
 import {DoctorModel} from '../../../models/DoctorModel';
 import {DoctorDatesModel} from '../../../models/DoctorDatesModel';
-import {HourModel} from '../../../models/HourModel';
+import {OneVisitModel} from '../../../models/OneVisitModel';
 import {BookAVisitModel} from '../../../models/BookAVisitModel';
 import {ToastrService} from 'ngx-toastr';
 
@@ -19,7 +19,7 @@ export class PatientHoursPickerComponent implements OnInit {
   doctors: DoctorModel[];
   doctorDates: DoctorDatesModel;
   selectedDoctorId: number;
-  doctorHours: HourModel[];
+  doctorHours: OneVisitModel[];
   actualDate: Date;
   bookAVisitModel: BookAVisitModel;
   isDateOk = true;
@@ -51,7 +51,7 @@ export class PatientHoursPickerComponent implements OnInit {
 
         for (let i = 0; i < this.doctorDates.days.length; i++) {
           if (this.doctorDates.days[i].date === this.stringDateFromPath) {
-            this.doctorHours = this.doctorDates.days[i].listOfHours;
+            this.doctorHours = this.doctorDates.days[i].listOfOneVisit;
             console.log(this.doctorHours);
           }
         }

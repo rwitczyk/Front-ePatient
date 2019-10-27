@@ -7,6 +7,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ManageOneDayDoctorTimetableComponent implements OnInit {
 
+  time = {hour: 0, minute: 30};
+  visitsFromTime = {hour: 8, minute: 0};
+  visitsToTime =  {hour: 16, minute: 0};
+  oneVisitFromTime =  {hour: 12, minute: 0};
+  oneVisitToTime =  {hour: 12, minute: 30};
   constructor() { }
 
   ngOnInit() {

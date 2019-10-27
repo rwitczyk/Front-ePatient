@@ -1,4 +1,50 @@
 <app-navbar></app-navbar>
+
+<div class="component-background-image"></div>
+
 <div class="form-container margin-top-2rem">
-  Tworzenie harmonogramu doktora
+
+  <h3>Harmonogram pracy doktora:</h3>
+  Do zrobienia tabelka
+
+  <mat-tab-group style="margin-top: 3rem">
+    <mat-tab label="Stwórz automatyczny harmonogram">
+      <div style="display: inline-flex; align-items: center; margin-right: 3rem">
+        <h6 style="margin-right: 1rem">Wizyty od:</h6>
+        <ngb-timepicker [(ngModel)]="visitsFromTime" [minuteStep]="5"></ngb-timepicker>
+      </div>
+
+      <div style="display: inline-flex; align-items: center;">
+        <h6 style="margin-right: 1rem">Wizyty do:</h6>
+        <ngb-timepicker [(ngModel)]="visitsToTime" [minuteStep]="5"></ngb-timepicker>
+      </div>
+      <div></div>
+
+      <div style="display: inline-flex; align-items: center;">
+        <h6 style="margin-right: 1rem">Długość jednej wizyty:</h6>
+        <ngb-timepicker [(ngModel)]="time" [minuteStep]="5"></ngb-timepicker>
+      </div>
+
+      <div>
+        <button mdbBtn type="button" color="primary" rounded="true" mdbWavesEffect>Zatwierdź</button>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Stwórz pojedynczą wizytę">
+      <div style="display: inline-flex; align-items: center; margin-right: 3rem">
+        <h6 style="margin-right: 1rem">Początek wizyty:</h6>
+        <ngb-timepicker [(ngModel)]="oneVisitFromTime" [minuteStep]="5"></ngb-timepicker>
+      </div>
+
+      <div style="display: inline-flex; align-items: center;">
+        <h6 style="margin-right: 1rem">Koniec wizyty:</h6>
+        <ngb-timepicker [(ngModel)]="oneVisitToTime" [minuteStep]="5"></ngb-timepicker>
+      </div>
+
+      <div>
+        <button mdbBtn type="button" color="primary" rounded="true" mdbWavesEffect>Zatwierdź</button>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
 </div>

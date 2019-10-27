@@ -1,7 +1,11 @@
-import {HourModel} from './HourModel';
+import {OneVisitModel} from './OneVisitModel';
+import {BookAVisitModel} from './BookAVisitModel';
 
 export class DateModel {
   dateId: number;
   date: string;
-  listOfHours: HourModel[];
+  visitsFromTime: string;
+  visitsToTime: string;
+  listOfOneVisit: OneVisitModel[];
+  listOfVisitsToApprove: BookAVisitModel[];
 }

@@ -1,3 +1,25 @@
 <app-navbar></app-navbar>
 
-Doctor visits for one day working!
+<div class="component-background-image"></div>
+
+<div class="form-container" style="margin-top: 2rem;">
+
+  <table mdbTable>
+    <thead>
+    <tr>
+      <th *ngFor="let header of tableHeaders" scope="col">{{header}} </th>
+    </tr>
+    </thead>
+    <tbody *ngIf="oneDay != null">
+    <tr mdbTableCol *ngFor="let doctorOneDate of oneDay.listOfVisitsToApprove">
+      <th scope="row">{{doctorOneDate.visitHour}}:{{doctorOneDate.visitMinute}}</th>
+      <td>{{doctorOneDate.patientId}}</td>
+      <td>{{doctorOneDate.additionalVisitDescription}}</td>
+      <td>
+        <button mdbBtn class="btn btn-red">Usuń</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

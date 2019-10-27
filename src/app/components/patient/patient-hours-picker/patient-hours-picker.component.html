@@ -19,7 +19,7 @@
     <hr>
 
     <div class="hour-picker-container">
-      Wyślij zapytanie o wizytę na wybraną godzinę:
+      <div>Wyślij zapytanie o wizytę na wybraną godzinę:</div>
       <div style="display: inline-flex; margin-top: 0.5rem">
         <ngb-timepicker [(ngModel)]="time" [minuteStep]="5"></ngb-timepicker>
 
@@ -28,7 +28,7 @@
           <textarea id="descriptionVisitTextArea" #textAreaElement rows="3"></textarea>
         </span>
 
-        <button mdbBtn style="margin: 3.3rem 1rem; max-height: 3.1rem" (click)="sendQuestionAboutReservation(textAreaElement.value)"
+        <button *ngIf="selectedDoctorId != null" mdbBtn style="margin: 3.3rem 1rem; max-height: 3.1rem" (click)="sendQuestionAboutReservation(textAreaElement.value)"
                 class="btn btn-info">Wyślij
         </button>
       </div>
