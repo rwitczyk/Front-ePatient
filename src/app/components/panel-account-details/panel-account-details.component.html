@@ -13,8 +13,13 @@
     <span class="text-header">Adres email: </span> <span class="text-value">{{emailAdress}}</span>
   </div>
 
+  <hr>
 
   <div *ngIf="role == 'ROLE_PATIENT'">
     Tu będą wszystkie wizyty pacjenta
+  </div>
+
+  <div *ngIf="role == 'ROLE_DOCTOR'">
+    Tu będą wszystkie wizyty doktora
   </div>
 </div>

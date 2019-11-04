@@ -3,7 +3,7 @@
 <div class="component-background-image"></div>
 
 <div class="form-container" style="margin-top: 2rem;">
-
+  <h5> Wizyty do akceptacji </h5>
   <table mdbTable>
     <thead>
     <tr>
@@ -11,15 +11,17 @@
     </tr>
     </thead>
     <tbody *ngIf="oneDay != null">
-    <tr mdbTableCol *ngFor="let doctorOneDate of oneDay.listOfVisitsToApprove">
+    <tr mdbTableCol *ngFor="let doctorOneDate of visitsToAccept">
       <th scope="row">{{doctorOneDate.visitHour}}:{{doctorOneDate.visitMinute}}</th>
-      <td>{{doctorOneDate.patientId}}</td>
-      <td>{{doctorOneDate.additionalVisitDescription}}</td>
+      <td>{{doctorOneDate.additionalDescription}}</td>
       <td>
-        <button mdbBtn class="btn btn-red">Usuń</button>
+        <button mdbBtn class="btn btn-info">Szczegóły wizyty</button>
       </td>
     </tr>
     </tbody>
   </table>
+
+  <hr>
+  <h5> Wizyty: </h5>
 
 </div>

@@ -4,16 +4,23 @@
 
 <div class="doctor-management-calendar form-container">
   <h5 style="margin-top: 2rem;">Stwórz harmonogram pracy doktora:</h5>
-  <hr>
 
-  <full-calendar
-    defaultView="dayGridMonth"
-    (dateClick)="handleDateClick($event)"
-    [weekends]="false"
-    [plugins]="calendarPlugins"
-    [events]="calendarEvents"
-    [eventClassName]="eventMyStyle"
-    deepChangeDetection="true"
-  >
-  </full-calendar>
+  <mat-tab-group style="margin-top: 1rem">
+    <mat-tab label="Na wybrany dzień">
+      <full-calendar
+        defaultView="dayGridMonth"
+        (dateClick)="handleDateClick($event)"
+        [weekends]="false"
+        [plugins]="calendarPlugins"
+        [events]="calendarEvents"
+        [eventClassName]="eventMyStyle"
+        deepChangeDetection="true"
+      >
+      </full-calendar>
+    </mat-tab>
+    <mat-tab label="Na wiele dni">
+      Checkboxy jakies do wyboru
+    </mat-tab>
+  </mat-tab-group>
+
 </div>

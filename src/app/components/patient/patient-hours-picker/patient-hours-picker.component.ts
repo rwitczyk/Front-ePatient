@@ -61,9 +61,9 @@ export class PatientHoursPickerComponent implements OnInit {
 
   sendQuestionAboutReservation(visitDescription: string) {
     this.bookAVisitModel = new BookAVisitModel();
-    this.bookAVisitModel.additionalVisitDescription = visitDescription;
+    this.bookAVisitModel.additionalDescription = visitDescription;
     this.bookAVisitModel.doctorId = this.selectedDoctorId;
-    this.bookAVisitModel.patientId = 2;
+    this.bookAVisitModel.patientId = parseInt(sessionStorage.getItem('accountId'), 10);
     this.bookAVisitModel.visitHour = this.time.hour;
     this.bookAVisitModel.visitMinute = this.time.minute;
     this.bookAVisitModel.visitDate = this.stringDateFromPath;

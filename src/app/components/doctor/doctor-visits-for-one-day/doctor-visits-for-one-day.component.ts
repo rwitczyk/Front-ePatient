@@ -3,6 +3,7 @@ import {DoctorService} from '../../../services/doctor.service';
 import {DoctorDatesModel} from '../../../models/DoctorDatesModel';
 import {ActivatedRoute} from '@angular/router';
 import {DateModel} from '../../../models/DateModel';
+import {BookAVisitModel} from '../../../models/BookAVisitModel';
 
 @Component({
   selector: 'app-doctor-visits-for-one-day',
@@ -12,8 +13,9 @@ import {DateModel} from '../../../models/DateModel';
 export class DoctorVisitsForOneDayComponent implements OnInit {
   doctorDates: DoctorDatesModel;
   oneDay: DateModel;
+  visitsToAccept: BookAVisitModel[];
   visitDate: string;
-  tableHeaders = ['Godzina', 'Id pacjenta', 'Dodatkowy opis'];
+  tableHeaders = ['Godzina', 'Dodatkowy opis'];
 
   constructor(private doctorService: DoctorService, private route: ActivatedRoute) {
   }
@@ -23,15 +25,18 @@ export class DoctorVisitsForOneDayComponent implements OnInit {
 
     this.doctorService.getDoctorDatesById(sessionStorage.getItem('accountId')).subscribe(value => {
       this.doctorDates = value;
-      console.log(this.doctorDates);
+      // console.log(this.doctorDates);
+
+      for (let i = 0; i < this.doctorDates.days.length; i++) {
+        if (this.doctorDates.days[i].date === this.visitDate) {
+          this.oneDay = this.doctorDates.days[i];
+          console.log(this.oneDay);
+          this.visitsToAccept = this.oneDay.listOfVisitsToApprove;
+          console.log(this.visitsToAccept);
+        }
+      }
     });
 
-    for (let i = 0; i < this.doctorDates.days.length; i++) {
-      if (this.doctorDates.days[i].date === this.visitDate) {
-        this.oneDay = this.doctorDates.days[i];
-        console.log(this.oneDay);
-      }
-    }
 
   }
 

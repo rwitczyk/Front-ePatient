@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {DoctorService} from '../../../services/doctor.service';
-import {PatientService} from '../../../services/patient.service';
-import {PatientModel} from '../../../models/PatientModel';
-import {DoctorModel} from '../../../models/DoctorModel';
+import {PatientModel} from '../../models/PatientModel';
+import {DoctorModel} from '../../models/DoctorModel';
+import {DoctorService} from '../../services/doctor.service';
+import {PatientService} from '../../services/patient.service';
 
 @Component({
   selector: 'app-panel-patient-account',

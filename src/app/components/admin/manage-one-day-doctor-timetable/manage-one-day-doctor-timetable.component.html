@@ -22,11 +22,11 @@
 
       <div style="display: inline-flex; align-items: center;">
         <h6 style="margin-right: 1rem">Długość jednej wizyty:</h6>
-        <ngb-timepicker [(ngModel)]="time" [minuteStep]="5"></ngb-timepicker>
+        <ngb-timepicker [(ngModel)]="visitLength" [minuteStep]="5"></ngb-timepicker>
       </div>
 
       <div>
-        <button mdbBtn type="button" color="primary" rounded="true" mdbWavesEffect>Zatwierdź</button>
+        <button mdbBtn type="button" color="primary" rounded="true" mdbWavesEffect (click)="createAutoTimetable()">Zatwierdź</button>
       </div>
     </mat-tab>
 

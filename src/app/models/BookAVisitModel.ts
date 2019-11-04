@@ -4,5 +4,5 @@ export class BookAVisitModel {
   visitHour: number;
   visitMinute: number;
   visitDate: string;
-  additionalVisitDescription: string;
+  additionalDescription: string;
 }
