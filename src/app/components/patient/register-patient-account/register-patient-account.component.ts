@@ -17,8 +17,6 @@ export class RegisterPatientAccountComponent implements OnInit {
   }
 
   ngOnInit() {
-
-
     this.patientForm = this.fb.group({
       patientEmailForm: [null, [Validators.required, Validators.email]],
       patientFirstNameForm: [null, Validators.required],
@@ -29,8 +27,6 @@ export class RegisterPatientAccountComponent implements OnInit {
       patientPhoneNumberForm: [null, [Validators.pattern('[0-9]{9}'), Validators.required]]
     });
   }
-
-
 
   registerPatient() {
     if (this.patientForm.valid) {
