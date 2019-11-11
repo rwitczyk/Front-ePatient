@@ -51,7 +51,7 @@ export class PatientHoursPickerComponent implements OnInit {
 
         for (let i = 0; i < this.doctorDates.days.length; i++) {
           if (this.doctorDates.days[i].date === this.stringDateFromPath) {
-            this.doctorHours = this.doctorDates.days[i].listOfOneVisit;
+            this.doctorHours = this.doctorDates.days[i].listOfOneVisitEntities;
             console.log(this.doctorHours);
           }
         }

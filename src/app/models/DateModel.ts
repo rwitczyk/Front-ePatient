@@ -6,6 +6,6 @@ export class DateModel {
   date: string;
   visitsFromTime: string;
   visitsToTime: string;
-  listOfOneVisit: OneVisitModel[];
+  listOfOneVisitEntities: OneVisitModel[];
   listOfVisitsToApprove: BookAVisitModel[];
 }

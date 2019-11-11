@@ -1,4 +1,5 @@
 export class BookAVisitModel {
+  visitId: number;
   patientId: number;
   doctorId: number;
   visitHour: number;

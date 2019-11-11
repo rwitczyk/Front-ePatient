@@ -4,6 +4,7 @@ import {DoctorDatesModel} from '../../../models/DoctorDatesModel';
 import {ActivatedRoute} from '@angular/router';
 import {DateModel} from '../../../models/DateModel';
 import {BookAVisitModel} from '../../../models/BookAVisitModel';
+import {OneVisitModel} from '../../../models/OneVisitModel';
 
 @Component({
   selector: 'app-doctor-visits-for-one-day',
@@ -16,6 +17,8 @@ export class DoctorVisitsForOneDayComponent implements OnInit {
   visitsToAccept: BookAVisitModel[];
   visitDate: string;
   tableHeaders = ['Godzina', 'Dodatkowy opis'];
+  visitTableHeaders = ['Godzina', 'Opis'];
+  doctorVisits: OneVisitModel[];
 
   constructor(private doctorService: DoctorService, private route: ActivatedRoute) {
   }
@@ -31,8 +34,9 @@ export class DoctorVisitsForOneDayComponent implements OnInit {
         if (this.doctorDates.days[i].date === this.visitDate) {
           this.oneDay = this.doctorDates.days[i];
           console.log(this.oneDay);
+          this.doctorVisits = this.oneDay.listOfOneVisitEntities;
+          console.log(this.doctorVisits);
           this.visitsToAccept = this.oneDay.listOfVisitsToApprove;
-          console.log(this.visitsToAccept);
         }
       }
     });

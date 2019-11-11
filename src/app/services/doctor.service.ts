@@ -4,6 +4,7 @@ import {environment} from '../../environments/environment';
 import {DoctorModel} from '../models/DoctorModel';
 import {DoctorDatesModel} from '../models/DoctorDatesModel';
 import {BookAVisitModel} from '../models/BookAVisitModel';
+import {OneVisitModel} from '../models/OneVisitModel';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,13 @@ export class DoctorService {
 
   deleteDoctorAccount(selectedDoctorId: number) {
     return this.http.get(environment.backendUrl + '/api/doctor/delete/' + selectedDoctorId);
+  }
+
+  getBookAVisitByVisitId(visitId: string) {
+    return this.http.get<BookAVisitModel>(environment.backendUrl + '/api/visit/' + visitId);
+  }
+
+  approveBookAVisit(oneVisit: OneVisitModel) {
+    return this.http.post(environment.backendUrl + '/api/visit/approve', oneVisit);
   }
 }

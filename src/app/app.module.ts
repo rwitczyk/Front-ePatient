@@ -34,6 +34,7 @@ import {HttpHeadersInterceptor} from './http-headers-interceptor';
 import {ManageTimetableDoctorComponent} from './components/admin/manage-timetable-doctor/manage-timetable-doctor.component';
 import {PatientManagementByAdminComponent} from './components/admin/patient-management-by-admin/patient-management-by-admin.component';
 import {ManageOneDayDoctorTimetableComponent} from './components/admin/manage-one-day-doctor-timetable/manage-one-day-doctor-timetable.component';
+import {BookAVisitDetailsComponent} from './components/doctor/book-a-visit-details/book-a-visit-details.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {ManageOneDayDoctorTimetableComponent} from './components/admin/manage-on
     ManageTimetableDoctorComponent,
     PatientManagementByAdminComponent,
     ManageOneDayDoctorTimetableComponent,
+    BookAVisitDetailsComponent,
   ],
   imports: [
     BrowserModule,

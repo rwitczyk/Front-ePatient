@@ -1,7 +1,11 @@
+import {TimeModel} from './TimeModel';
+
 export class OneVisitModel {
-  visitId: string;
-  fromTime: string;
-  toTime: string;
+  bookAVisitModelId: string;
+  doctorId: string;
+  fromTime: TimeModel;
+  toTime: TimeModel;
+  visitDate: string;
   isBusy: string;
   additionalDescription: string;
 }
