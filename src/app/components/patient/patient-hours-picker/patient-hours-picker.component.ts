@@ -15,7 +15,7 @@ import {ToastrService} from 'ngx-toastr';
 export class PatientHoursPickerComponent implements OnInit {
   dateFromPath: Date;
   stringDateFromPath: string;
-  tableHeaders: string[] = ['Godzina', 'Stan', 'Rezerwuj'];
+  tableHeaders: string[] = ['Od godziny', 'Do godziny', 'Stan', 'Rezerwuj'];
   doctors: DoctorModel[];
   doctorDates: DoctorDatesModel;
   selectedDoctorId: number;

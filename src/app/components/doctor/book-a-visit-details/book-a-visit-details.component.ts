@@ -59,7 +59,7 @@ export class BookAVisitDetailsComponent implements OnInit {
     this.oneVisitModel.isBusy = 'true';
     this.oneVisitModel.bookAVisitModelId = this.visit.visitId.toString();
 
-    this.doctorService.approveBookAVisit(this.oneVisitModel).subscribe(value1 => {
+    this.doctorService.approveBookAVisit(this.oneVisitModel).subscribe(() => {
       this.toastr.success('Zaakceptowano wizytę!');
     }, error1 => this.toastr.error(error1.error.message));
   }

@@ -10,7 +10,7 @@
       <li class="nav-item" *ngIf="role == 'ROLE_ADMIN' || role == 'ROLE_PATIENT'">
         <a class="nav-link waves-light" mdbWavesEffect href="/patient-date-picker">Zarezerwuj wizytę</a>
       </li>
-      <li class="nav-item" *ngIf="jwtToken != ''">
+      <li class="nav-item" *ngIf="jwtToken != undefined">
         <a class="nav-link waves-light" mdbWavesEffect href="/account-details">Moje konto</a>
       </li>
       <li class="nav-item" *ngIf="role == 'ROLE_ADMIN' || role == 'ROLE_DOCTOR'">
@@ -28,16 +28,16 @@
 <!--  Right links -->
   <links>
     <ul class="navbar-nav ml-auto mr-1">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="role == undefined">
         <a class="nav-link waves-light" mdbWavesEffect href="/register-patient">Stwórz konto pacjenta</a>
       </li>
       <li class="nav-item" *ngIf="role == 'ROLE_ADMIN'">
         <a class="nav-link waves-light" mdbWavesEffect href="/register-doctor">Stwórz konto doktora</a>
       </li>
-      <li class="nav-item" *ngIf="jwtToken == ''">
+      <li class="nav-item" *ngIf="jwtToken == undefined">
         <a class="nav-link waves-light" mdbWavesEffect href="/login">Zaloguj się</a>
       </li>
-      <li class="nav-item" *ngIf="jwtToken != ''">
+      <li class="nav-item" *ngIf="jwtToken != undefined">
         <a class="nav-link waves-light" mdbWavesEffect href="/home" (click)="logOut()">Wyloguj się</a>
       </li>
     </ul>

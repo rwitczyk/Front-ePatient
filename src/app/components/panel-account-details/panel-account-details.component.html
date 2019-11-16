@@ -10,16 +10,28 @@
     <span class="text-header">Nazwisko: </span> <span class="text-value">{{lastName}}</span>
   </div>
   <div class="text-content">
-    <span class="text-header">Adres email: </span> <span class="text-value">{{emailAdress}}</span>
+    <span class="text-header">Adres email: </span> <span class="text-value">{{emailAddress}}</span>
+  </div>
+  <div class="text-content" *ngIf="role == 'ROLE_DOCTOR'">
+    <span class="text-header">Profesja: </span> <span class="text-value">{{profession}}</span>
+  </div>
+  <div class="text-content" *ngIf="role == 'ROLE_DOCTOR'">
+    <span class="text-header">Numer pokoju: </span> <span class="text-value">{{doctorRoomNumber}}</span>
   </div>
 
   <hr>
 
   <div *ngIf="role == 'ROLE_PATIENT'">
     Tu będą wszystkie wizyty pacjenta
+    <table mdbTable>
+      <thead>
+      <tr>
+        <th *ngFor="let header of patientVisitsHeaders" scope="col">{{header}} </th>
+      </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
   </div>
 
-  <div *ngIf="role == 'ROLE_DOCTOR'">
-    Tu będą wszystkie wizyty doktora
-  </div>
 </div>

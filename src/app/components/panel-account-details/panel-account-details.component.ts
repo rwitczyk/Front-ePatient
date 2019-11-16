@@ -12,10 +12,14 @@ import {PatientService} from '../../services/patient.service';
 export class PanelAccountDetailsComponent implements OnInit {
   firstName: string;
   lastName: string;
-  emailAdress: string;
+  emailAddress: string;
+  profession: string;
+  doctorRoomNumber: string;
+
   patient: PatientModel;
   doctor: DoctorModel;
   role: string;
+  patientVisitsHeaders = ['Data', 'Godzina', 'Opis'];
 
   constructor(private doctorService: DoctorService, private patientService: PatientService) {
   }
@@ -27,7 +31,9 @@ export class PanelAccountDetailsComponent implements OnInit {
         this.doctor = value;
         this.firstName = this.doctor.name;
         this.lastName = this.doctor.surname;
-        this.emailAdress = this.doctor.email;
+        this.emailAddress = this.doctor.email;
+        this.profession = this.doctor.profession;
+        this.doctorRoomNumber = this.doctor.roomNumber;
       });
     } else {
 
@@ -35,7 +41,7 @@ export class PanelAccountDetailsComponent implements OnInit {
         this.patient = value;
         this.firstName = this.patient.name;
         this.lastName = this.patient.surname;
-        this.emailAdress = this.patient.email;
+        this.emailAddress = this.patient.email;
       });
     }
 

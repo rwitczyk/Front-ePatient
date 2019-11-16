@@ -12,9 +12,9 @@
     </thead>
     <tbody *ngIf="oneDay != null">
     <tr mdbTableCol *ngFor="let doctorOneDate of visitsToAccept">
-      <th scope="row">{{doctorOneDate.visitHour}}:{{doctorOneDate.visitMinute}}</th>
-      <td>{{doctorOneDate.additionalDescription}}</td>
-      <td>
+      <th *ngIf="doctorOneDate.visibility == true" scope="row">{{doctorOneDate.visitHour}}:{{doctorOneDate.visitMinute}}</th>
+      <td *ngIf="doctorOneDate.visibility == true">{{doctorOneDate.additionalDescription}}</td>
+      <td *ngIf="doctorOneDate.visibility == true">
         <button mdbBtn class="btn btn-info" [routerLink]="['/book-a-visit-details',doctorOneDate.visitId]">Szczegóły wizyty</button>
       </td>
     </tr>

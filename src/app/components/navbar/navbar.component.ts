@@ -17,8 +17,6 @@ export class NavbarComponent implements OnInit {
   }
 
   logOut() {
-    sessionStorage.setItem('jwtToken', '');
-    sessionStorage.setItem('role', '');
-    sessionStorage.setItem('accountId', '');
+    sessionStorage.clear();
   }
 }
