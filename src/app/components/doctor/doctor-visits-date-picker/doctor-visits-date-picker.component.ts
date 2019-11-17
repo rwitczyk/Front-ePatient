@@ -16,9 +16,10 @@ export class DoctorVisitsDatePickerComponent implements OnInit {
   calendarEvents = [];
   eventMyStyle = 'my-calendar-event-style';
   actualDate: Date;
-  actualDay: string;
-  actualMonth: string;
-  actualYear: string;
+  actualDay: number;
+  actualMonth: number;
+  actualYear: number;
+  today: string;
 
   doctorDatesModel: DoctorDatesModel;
 
@@ -29,27 +30,37 @@ export class DoctorVisitsDatePickerComponent implements OnInit {
     this.actualDate = new Date();
     this.doctorService.getDoctorDatesById(sessionStorage.getItem('accountId')).subscribe(value => {
         this.doctorDatesModel = value;
+
+        this.actualDay = (this.actualDate.getDate());
+        this.actualMonth = (this.actualDate.getMonth() + 1);
+        this.actualYear = (this.actualDate.getFullYear());
+        this.today = this.actualYear + '-' + this.actualMonth + '-' + this.actualDay;
+        this.actualDay = this.actualDay - 1;
+
+        for (let i = 0; i < 60; i++) {
+          if (this.doctorDatesModel.days[i].date >= this.today) {
+            this.actualDay = (this.actualDay + 1);
+
+            if (this.doctorDatesModel.days[i].visitsFromTime === null) {
+              this.calendarEvents.push({
+                title: ' - ',
+                date: this.actualYear + '-' + this.actualMonth + '-' + this.actualDay
+              });
+            } else {
+              this.calendarEvents.push({
+                title: this.doctorDatesModel.days[i].visitsFromTime.substring(0, this.doctorDatesModel.days[i].visitsFromTime.length - 3) +
+                  ' - ' + this.doctorDatesModel.days[i].visitsToTime.substring(0, this.doctorDatesModel.days[i].visitsToTime.length - 3),
+                date: this.actualYear + '-' + this.actualMonth + '-' + this.actualDay
+              });
+            }
+          }
+
+        }
       }
     );
-    // TODO update calendar Events title
-
-    for (let i = 0; i < 30; i++) {
-      this.actualDay = (this.actualDate.getDate() + i).toString();
-      this.actualMonth = (this.actualDate.getMonth() + 1).toString();
-      this.actualYear = (this.actualDate.getFullYear()).toString();
-
-      if (this.actualDay.toString().length < 2) {
-        this.actualDay = '0' + this.actualDay.toString();
-      }
-
-      this.calendarEvents.push({
-        title: '8:00 - 14:00', date: this.actualYear + '-' + this.actualMonth + '-' + (this.actualDay)
-      });
-    }
   }
 
   handleDateClick(arg) {
-    console.log(arg.dateStr);
     this.router.navigate(['doctor-visits-for-one-day/' + arg.dateStr]);
   }
 }

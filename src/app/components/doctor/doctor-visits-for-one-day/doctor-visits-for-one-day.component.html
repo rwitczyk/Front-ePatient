@@ -32,6 +32,7 @@
     <tbody *ngIf="oneDay != null">
     <tr mdbTableCol *ngFor="let oneVisit of doctorVisits">
       <th scope="row">{{oneVisit.fromTime.toString().substring(0,oneVisit.fromTime.toString().length-3)}}</th>
+      <th scope="row">{{oneVisit.toTime.toString().substring(0,oneVisit.toTime.toString().length-3)}}</th>
       <td>{{oneVisit.additionalDescription}}</td>
     </tr>
     </tbody>
