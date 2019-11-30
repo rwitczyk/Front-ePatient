@@ -54,4 +54,8 @@ export class DoctorService {
   createEmptyOneVisit(oneVisitModel: OneVisitModel) {
     return this.http.post(environment.backendUrl + '/api/doctor/create-one-visit', oneVisitModel);
   }
+
+  cancelOneVisitToAccept(visitId: number) {
+    return this.http.post(environment.backendUrl + '/api/doctor/cancelOneVisitToAccept/' + visitId, '');
+  }
 }

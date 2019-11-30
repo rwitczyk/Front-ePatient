@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {DateModel} from '../../../models/DateModel';
 import {BookAVisitModel} from '../../../models/BookAVisitModel';
 import {OneVisitModel} from '../../../models/OneVisitModel';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-doctor-visits-for-one-day',
@@ -16,11 +17,11 @@ export class DoctorVisitsForOneDayComponent implements OnInit {
   oneDay: DateModel;
   visitsToAccept: BookAVisitModel[];
   visitDate: string;
-  tableHeaders = ['Godzina', 'Dodatkowy opis'];
+  tableHeaders = ['Godzina', 'Dodatkowy opis', 'Szczegóły', 'Odwołaj wizytę'];
   visitTableHeaders = ['Od godziny', 'Do godziny', 'Stan', 'Opis'];
   doctorVisits: OneVisitModel[];
 
-  constructor(private doctorService: DoctorService, private route: ActivatedRoute) {
+  constructor(private doctorService: DoctorService, private route: ActivatedRoute, private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -41,4 +42,10 @@ export class DoctorVisitsForOneDayComponent implements OnInit {
 
   }
 
+  cancelVisitToAccept(visitId: number) {
+    this.doctorService.cancelOneVisitToAccept(visitId).subscribe(() => {
+      this.toastr.success('Anulowano wizytę!');
+      this.ngOnInit();
+    }, error1 => console.log(error1.error.message));
+  }
 }
