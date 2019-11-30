@@ -17,7 +17,7 @@ export class DoctorVisitsForOneDayComponent implements OnInit {
   visitsToAccept: BookAVisitModel[];
   visitDate: string;
   tableHeaders = ['Godzina', 'Dodatkowy opis'];
-  visitTableHeaders = ['Od godziny', 'Do godziny', 'Opis'];
+  visitTableHeaders = ['Od godziny', 'Do godziny', 'Stan', 'Opis'];
   doctorVisits: OneVisitModel[];
 
   constructor(private doctorService: DoctorService, private route: ActivatedRoute) {
@@ -28,7 +28,6 @@ export class DoctorVisitsForOneDayComponent implements OnInit {
 
     this.doctorService.getDoctorDatesById(sessionStorage.getItem('accountId')).subscribe(value => {
       this.doctorDates = value;
-      // console.log(this.doctorDates);
 
       for (let i = 0; i < this.doctorDates.days.length; i++) {
         if (this.doctorDates.days[i].date === this.visitDate) {

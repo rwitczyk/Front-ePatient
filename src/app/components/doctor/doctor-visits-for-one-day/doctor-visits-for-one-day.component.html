@@ -3,25 +3,31 @@
 <div class="component-background-image"></div>
 
 <div class="form-container" style="margin-top: 2rem;">
-  <h5> Wizyty do akceptacji </h5>
-  <table mdbTable>
-    <thead>
-    <tr>
-      <th *ngFor="let header of tableHeaders" scope="col">{{header}} </th>
-    </tr>
-    </thead>
-    <tbody *ngIf="oneDay != null">
-    <tr mdbTableCol *ngFor="let doctorOneDate of visitsToAccept">
-      <th *ngIf="doctorOneDate.visibility == true" scope="row">{{doctorOneDate.visitHour}}:{{doctorOneDate.visitMinute}}</th>
-      <td *ngIf="doctorOneDate.visibility == true">{{doctorOneDate.additionalDescription}}</td>
-      <td *ngIf="doctorOneDate.visibility == true">
-        <button mdbBtn class="btn btn-info" [routerLink]="['/book-a-visit-details',doctorOneDate.visitId]">Szczegóły wizyty</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <div *ngIf="visitsToAccept.length > 0">
+    <h5> Wizyty do akceptacji </h5>
+    <table mdbTable>
+      <thead>
+      <tr>
+        <th *ngFor="let header of tableHeaders" scope="col">{{header}} </th>
+      </tr>
+      </thead>
+      <tbody *ngIf="oneDay != null">
+      <tr mdbTableCol *ngFor="let doctorOneDate of visitsToAccept">
+        <th *ngIf="doctorOneDate.visibility == true" scope="row">{{doctorOneDate.visitHour}}
+          :{{doctorOneDate.visitMinute}}</th>
+        <td *ngIf="doctorOneDate.visibility == true">{{doctorOneDate.additionalDescription}}</td>
+        <td *ngIf="doctorOneDate.visibility == true">
+          <button mdbBtn class="btn btn-info" [routerLink]="['/book-a-visit-details',doctorOneDate.visitId]">Szczegóły
+            wizyty
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <hr>
 
-  <hr>
+  </div>
+
   <h5> Wizyty: </h5>
   <table mdbTable>
     <thead>
@@ -31,8 +37,9 @@
     </thead>
     <tbody *ngIf="oneDay != null">
     <tr mdbTableCol *ngFor="let oneVisit of doctorVisits">
-      <th scope="row">{{oneVisit.fromTime.toString().substring(0,oneVisit.fromTime.toString().length-3)}}</th>
-      <th scope="row">{{oneVisit.toTime.toString().substring(0,oneVisit.toTime.toString().length-3)}}</th>
+      <th scope="row">{{oneVisit.fromTime.toString().substring(0, oneVisit.fromTime.toString().length - 3)}}</th>
+      <th scope="row">{{oneVisit.toTime.toString().substring(0, oneVisit.toTime.toString().length - 3)}}</th>
+      <td>{{oneVisit.isBusy}}</td>
       <td>{{oneVisit.additionalDescription}}</td>
     </tr>
     </tbody>

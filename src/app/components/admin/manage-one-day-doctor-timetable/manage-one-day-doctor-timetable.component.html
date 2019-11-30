@@ -5,9 +5,25 @@
 <div class="form-container margin-top-2rem">
 
   <h3>Harmonogram pracy doktora:</h3>
-  Do zrobienia tabelka
+<br>
+  <h5> Aktualne wizyty: </h5>
+  <table mdbTable>
+    <thead>
+    <tr>
+      <th *ngFor="let header of visitTableHeaders" scope="col">{{header}} </th>
+    </tr>
+    </thead>
+    <tbody *ngIf="oneDay != null">
+    <tr mdbTableCol *ngFor="let oneVisit of doctorVisits">
+      <th scope="row">{{oneVisit.fromTime.toString().substring(0,oneVisit.fromTime.toString().length-3)}}</th>
+      <th scope="row">{{oneVisit.toTime.toString().substring(0,oneVisit.toTime.toString().length-3)}}</th>
+      <td>{{oneVisit.isBusy}}</td>
+      <td>{{oneVisit.additionalDescription}}</td>
+    </tr>
+    </tbody>
+  </table>
 
-  <mat-tab-group style="margin-top: 3rem">
+  <mat-tab-group style="margin-top: 2rem">
     <mat-tab label="Stwórz automatyczny harmonogram">
       <div style="display: inline-flex; align-items: center; margin-right: 3rem">
         <h6 style="margin-right: 1rem">Wizyty od:</h6>
@@ -42,7 +58,7 @@
       </div>
 
       <div>
-        <button mdbBtn type="button" color="primary" rounded="true" mdbWavesEffect>Zatwierdź</button>
+        <button mdbBtn type="button" color="primary" rounded="true" mdbWavesEffect (click)="createOneVisit()">Zatwierdź</button>
       </div>
     </mat-tab>
   </mat-tab-group>

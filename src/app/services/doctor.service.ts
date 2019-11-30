@@ -5,6 +5,7 @@ import {DoctorModel} from '../models/DoctorModel';
 import {DoctorDatesModel} from '../models/DoctorDatesModel';
 import {BookAVisitModel} from '../models/BookAVisitModel';
 import {OneVisitModel} from '../models/OneVisitModel';
+import {DoctorTimetableModel} from '../models/DoctorTimetableModel';
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +45,13 @@ export class DoctorService {
 
   approveBookAVisit(oneVisit: OneVisitModel) {
     return this.http.post(environment.backendUrl + '/api/visit/approve', oneVisit);
+  }
+
+  createEmptyDoctorTimetableForOneDay(doctorTimeTableModel: DoctorTimetableModel) {
+    return this.http.post(environment.backendUrl + '/api/doctor/create-auto-timetable-for-doctor', doctorTimeTableModel);
+  }
+
+  createEmptyOneVisit(oneVisitModel: OneVisitModel) {
+    return this.http.post(environment.backendUrl + '/api/doctor/create-one-visit', oneVisitModel);
   }
 }

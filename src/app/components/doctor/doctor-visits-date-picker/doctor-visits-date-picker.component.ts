@@ -54,8 +54,8 @@ export class DoctorVisitsDatePickerComponent implements OnInit {
               });
             }
           }
-
         }
+
       }
     );
   }

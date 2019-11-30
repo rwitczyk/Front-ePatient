@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'doctor-visits-date-picker', component: DoctorVisitsDatePickerComponent},
   {path: 'doctors-management', component: DoctorsManagementByAdminComponent},
   {path: 'manage-doctor-timetable/:id', component: ManageTimetableDoctorComponent},
-  {path: 'manage-one-day-doctor-timetable/:id', component: ManageOneDayDoctorTimetableComponent},
+  {path: 'manage-one-day-doctor-timetable/:date/:id', component: ManageOneDayDoctorTimetableComponent},
   {path: 'doctor-visits-for-one-day/:date', component: DoctorVisitsForOneDayComponent},
   {path: 'account-details', component: PanelAccountDetailsComponent},
   {path: 'patients-management', component: PatientManagementByAdminComponent},
