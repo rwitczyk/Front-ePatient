@@ -22,7 +22,8 @@
   <hr>
 
   <div *ngIf="role == 'ROLE_PATIENT'">
-    Tu będą wszystkie wizyty pacjenta
+    <br>
+    <h4>Wszystkie wizyty:</h4>
     <table mdbTable>
       <thead>
       <tr>
@@ -30,6 +31,12 @@
       </tr>
       </thead>
       <tbody>
+      <tr *ngFor="let oneVisit of patientVisits">
+        <td>{{oneVisit.visitDate}}</td>
+        <td>{{oneVisit.fromTime.toString().substring(0, oneVisit.fromTime.toString().length - 3)}}
+          - {{oneVisit.toTime.toString().substring(0, oneVisit.toTime.toString().length - 3)}}</td>
+        <td>{{oneVisit.doctor.name}} {{oneVisit.doctor.surname}}</td>
+        <td>{{oneVisit.additionalDescription}}</td>
       </tbody>
     </table>
   </div>

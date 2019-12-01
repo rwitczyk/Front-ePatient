@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {PatientModel} from '../models/PatientModel';
+import {PatientVisitsModel} from '../models/PatientVisitsModel';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,9 @@ export class PatientService {
 
   deletePatientById(patientId: number) {
     return this.http.get(environment.backendUrl + '/api/patient/delete/' + patientId);
+  }
+
+  getAllPatientVisitsByPatientId(patientId: string) {
+    return this.http.get<PatientVisitsModel[]>(environment.backendUrl + '/api/patient/getAllPatientVisits/' + patientId);
   }
 }

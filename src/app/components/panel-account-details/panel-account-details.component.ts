@@ -3,6 +3,7 @@ import {PatientModel} from '../../models/PatientModel';
 import {DoctorModel} from '../../models/DoctorModel';
 import {DoctorService} from '../../services/doctor.service';
 import {PatientService} from '../../services/patient.service';
+import {PatientVisitsModel} from '../../models/PatientVisitsModel';
 
 @Component({
   selector: 'app-panel-patient-account',
@@ -19,7 +20,9 @@ export class PanelAccountDetailsComponent implements OnInit {
   patient: PatientModel;
   doctor: DoctorModel;
   role: string;
-  patientVisitsHeaders = ['Data', 'Godzina', 'Opis'];
+
+  patientVisitsHeaders = ['Data', 'Godzina', 'Doktor', 'Opis'];
+  patientVisits: PatientVisitsModel[];
 
   constructor(private doctorService: DoctorService, private patientService: PatientService) {
   }
@@ -43,6 +46,10 @@ export class PanelAccountDetailsComponent implements OnInit {
         this.lastName = this.patient.surname;
         this.emailAddress = this.patient.email;
       });
+
+      this.patientService.getAllPatientVisitsByPatientId(sessionStorage.getItem('accountId')).subscribe(value => {
+        this.patientVisits = value;
+      }, error1 => console.log(error1.error.message));
     }
 
   }

@@ -1,8 +1,9 @@
 import {TimeModel} from './TimeModel';
+import {DoctorModel} from './DoctorModel';
 
-export class OneVisitModel {
+export class PatientVisitsModel {
   bookAVisitModelId: string;
-  doctorId: string;
+  doctor: DoctorModel;
   patientId: string;
   fromTime: TimeModel;
   toTime: TimeModel;

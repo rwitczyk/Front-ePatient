@@ -30,6 +30,7 @@ export class DoctorVisitsDatePickerComponent implements OnInit {
     this.actualDate = new Date();
     this.doctorService.getDoctorDatesById(sessionStorage.getItem('accountId')).subscribe(value => {
         this.doctorDatesModel = value;
+        console.log(this.doctorDatesModel);
 
         this.actualDay = (this.actualDate.getDate());
         this.actualMonth = (this.actualDate.getMonth() + 1);
@@ -37,7 +38,7 @@ export class DoctorVisitsDatePickerComponent implements OnInit {
         this.today = this.actualYear + '-' + this.actualMonth + '-' + this.actualDay;
         this.actualDay = this.actualDay - 1;
 
-        for (let i = 0; i < 60; i++) {
+        for (let i = 0; i < 90; i++) {
           if (this.doctorDatesModel.days[i].date >= this.today) {
             this.actualDay = (this.actualDay + 1);
 
@@ -47,6 +48,7 @@ export class DoctorVisitsDatePickerComponent implements OnInit {
                 date: this.actualYear + '-' + this.actualMonth + '-' + this.actualDay
               });
             } else {
+              console.log(this.actualYear + '-' + this.actualMonth + '-' + this.actualDay);
               this.calendarEvents.push({
                 title: this.doctorDatesModel.days[i].visitsFromTime.substring(0, this.doctorDatesModel.days[i].visitsFromTime.length - 3) +
                   ' - ' + this.doctorDatesModel.days[i].visitsToTime.substring(0, this.doctorDatesModel.days[i].visitsToTime.length - 3),

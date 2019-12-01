@@ -57,6 +57,7 @@ export class BookAVisitDetailsComponent implements OnInit {
     this.oneVisitModel.toTime = this.visitToTime;
     this.oneVisitModel.doctorId = this.visit.doctorId.toString();
     this.oneVisitModel.isBusy = 'true';
+    this.oneVisitModel.patientId = this.visit.patientId.toString();
     this.oneVisitModel.bookAVisitModelId = this.visit.visitId.toString();
 
     this.doctorService.approveBookAVisit(this.oneVisitModel).subscribe(() => {
