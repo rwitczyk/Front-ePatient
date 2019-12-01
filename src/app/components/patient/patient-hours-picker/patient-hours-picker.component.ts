@@ -72,4 +72,20 @@ export class PatientHoursPickerComponent implements OnInit {
       this.toastrService.success('Wysłano prośbę');
     }, error => this.toastrService.error(error.error.message));
   }
+
+  reserveAVisit(visitId: string) {
+    this.doctorService.reserveAVisit(sessionStorage.getItem('accountId'), visitId).subscribe(() => {
+      this.toastrService.success('Zarezerwowano wizytę!');
+
+      this.doctorService.getDoctorDatesById(this.selectedDoctorId.toString()).subscribe(value => {
+        this.doctorDates = value;
+
+        for (let i = 0; i < this.doctorDates.days.length; i++) {
+          if (this.doctorDates.days[i].date === this.stringDateFromPath) {
+            this.doctorHours = this.doctorDates.days[i].listOfOneVisitEntities;
+          }
+        }
+      });
+    }, error1 => error1.error.message);
+  }
 }

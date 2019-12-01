@@ -49,7 +49,7 @@
           <ng-template #elseBlock>Zajete</ng-template>
         </td>
         <td>
-          <button *ngIf="element.isBusy === 'false'" class="btn btn-info">
+          <button *ngIf="element.isBusy === 'false'" class="btn btn-info" (click)="reserveAVisit(element.visitId)">
             Rezerwuj
           </button>
         </td>

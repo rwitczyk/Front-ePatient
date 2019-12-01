@@ -58,4 +58,8 @@ export class DoctorService {
   cancelOneVisitToAccept(visitId: number) {
     return this.http.post(environment.backendUrl + '/api/doctor/cancelOneVisitToAccept/' + visitId, '');
   }
+
+  reserveAVisit(patientId: string, visitId: string) {
+    return this.http.post(environment.backendUrl + '/api/doctor/reserveAVisit/' + patientId + '/' + visitId, '');
+  }
 }
