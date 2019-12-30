@@ -59,7 +59,11 @@ export class DoctorService {
     return this.http.post(environment.backendUrl + '/api/doctor/cancelOneVisitToAccept/' + visitId, '');
   }
 
-  reserveAVisit(patientId: string, visitId: string) {
-    return this.http.post(environment.backendUrl + '/api/doctor/reserveAVisit/' + patientId + '/' + visitId, '');
+  reserveAVisit(patientId: string, visitId: string, description: string) {
+    return this.http.post(environment.backendUrl + '/api/doctor/reserveAVisit/' + patientId + '/' + visitId + '/' + description, '');
+  }
+
+  changeOneDayDescription(dateId: number, oneDayDescription: string) {
+    return this.http.post(environment.backendUrl + '/api/doctor/changeOneDayDescription/' + dateId + '/' + oneDayDescription, '');
   }
 }

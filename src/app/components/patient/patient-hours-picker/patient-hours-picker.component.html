@@ -11,7 +11,7 @@
       <label>
         <select class="browser-default custom-select" (change)="selectOption()" [(ngModel)]="selectedDoctorId">
           <option></option>
-          <option [value]="doctor.doctorId" *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
+          <option [value]="doctor.doctorId" *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}} {{doctor.profession}}</option>
         </select>
       </label>
     </div>
@@ -49,7 +49,10 @@
           <ng-template #elseBlock>Zajete</ng-template>
         </td>
         <td>
-          <button *ngIf="element.isBusy === 'false'" class="btn btn-info" (click)="reserveAVisit(element.visitId)">
+          <textarea id="descriptionTextArea" #description rows="2"></textarea>
+        </td>
+        <td>
+          <button *ngIf="element.isBusy === 'false'" class="btn btn-info" (click)="reserveAVisit(element.visitId, description.value)">
             Rezerwuj
           </button>
         </td>

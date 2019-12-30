@@ -8,4 +8,5 @@ export class DateModel {
   visitsToTime: string;
   listOfOneVisitEntities: OneVisitModel[];
   listOfVisitsToApprove: BookAVisitModel[];
+  oneDayDescription: string;
 }

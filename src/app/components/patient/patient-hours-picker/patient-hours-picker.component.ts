@@ -15,7 +15,7 @@ import {ToastrService} from 'ngx-toastr';
 export class PatientHoursPickerComponent implements OnInit {
   dateFromPath: Date;
   stringDateFromPath: string;
-  tableHeaders: string[] = ['Od godziny', 'Do godziny', 'Stan', 'Rezerwuj'];
+  tableHeaders: string[] = ['Od godziny', 'Do godziny', 'Stan', 'Opis wizyty', 'Rezerwuj'];
   doctors: DoctorModel[];
   doctorDates: DoctorDatesModel;
   selectedDoctorId: number;
@@ -33,8 +33,9 @@ export class PatientHoursPickerComponent implements OnInit {
     this.stringDateFromPath = this.route.snapshot.paramMap.get('date');
     this.dateFromPath = new Date(this.stringDateFromPath);
     this.actualDate = new Date();
+    this.actualDate.setHours(1, 0, 0, 0);
 
-    if (this.dateFromPath <= this.actualDate) {
+    if (this.dateFromPath < this.actualDate) {
       this.isDateOk = false;
     }
 
@@ -50,7 +51,7 @@ export class PatientHoursPickerComponent implements OnInit {
         this.doctorDates = value;
 
         for (let i = 0; i < this.doctorDates.days.length; i++) {
-          if (this.doctorDates.days[i].date === this.stringDateFromPath) {
+          if (this.doctorDates.days[i].date.substring(0, 10) === this.stringDateFromPath) {
             this.doctorHours = this.doctorDates.days[i].listOfOneVisitEntities;
             console.log(this.doctorHours);
           }
@@ -73,8 +74,8 @@ export class PatientHoursPickerComponent implements OnInit {
     }, error => this.toastrService.error(error.error.message));
   }
 
-  reserveAVisit(visitId: string) {
-    this.doctorService.reserveAVisit(sessionStorage.getItem('accountId'), visitId).subscribe(() => {
+  reserveAVisit(visitId: string, description: string) {
+    this.doctorService.reserveAVisit(sessionStorage.getItem('accountId'), visitId, description).subscribe(() => {
       this.toastrService.success('Zarezerwowano wizytę!');
 
       this.doctorService.getDoctorDatesById(this.selectedDoctorId.toString()).subscribe(value => {

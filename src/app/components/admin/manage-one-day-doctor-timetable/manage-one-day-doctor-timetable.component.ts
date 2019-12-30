@@ -43,7 +43,7 @@ export class ManageOneDayDoctorTimetableComponent implements OnInit {
       console.log(this.doctorDates);
 
       for (let i = 0; i < this.doctorDates.days.length; i++) {
-        if (this.doctorDates.days[i].date === this.visitDate) {
+        if (this.doctorDates.days[i].date.substring(0, 10) === this.visitDate) {
           this.oneDay = this.doctorDates.days[i];
           this.doctorVisits = this.oneDay.listOfOneVisitEntities;
         }
@@ -61,9 +61,9 @@ export class ManageOneDayDoctorTimetableComponent implements OnInit {
     this.doctorTimetable.minutes = this.visitLength;
 
     this.doctorService.createEmptyDoctorTimetableForOneDay(this.doctorTimetable).subscribe(() => {
-      this.toastr.success('Stworzono automatyczny harmongram!');
+      this.toastr.success('Stworzono automatyczny harmonogram!');
       this.ngOnInit();
-    }, error1 => console.log(error1.error.message));
+    }, error1 => this.toastr.error(error1.error.message));
   }
 
   createOneVisit() {
@@ -76,6 +76,6 @@ export class ManageOneDayDoctorTimetableComponent implements OnInit {
     this.doctorService.createEmptyOneVisit(this.oneVisitModel).subscribe(() => {
       this.toastr.success('Stworzono pojedynczą wizytę!');
       this.ngOnInit();
-    }, error1 => console.log(error1.error.message));
+    }, error1 => this.toastr.error(error1.error.message));
   }
 }

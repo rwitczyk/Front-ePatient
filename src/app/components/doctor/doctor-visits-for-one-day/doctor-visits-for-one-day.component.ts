@@ -20,6 +20,7 @@ export class DoctorVisitsForOneDayComponent implements OnInit {
   tableHeaders = ['Godzina', 'Dodatkowy opis', 'Szczegóły', 'Odwołaj wizytę'];
   visitTableHeaders = ['Od godziny', 'Do godziny', 'Stan', 'Opis'];
   doctorVisits: OneVisitModel[];
+  oneDayDescription: string;
 
   constructor(private doctorService: DoctorService, private route: ActivatedRoute, private toastr: ToastrService) {
   }
@@ -31,15 +32,14 @@ export class DoctorVisitsForOneDayComponent implements OnInit {
       this.doctorDates = value;
 
       for (let i = 0; i < this.doctorDates.days.length; i++) {
-        if (this.doctorDates.days[i].date === this.visitDate) {
+        if (this.doctorDates.days[i].date.substring(0, 10) === this.visitDate) {
           this.oneDay = this.doctorDates.days[i];
           this.doctorVisits = this.oneDay.listOfOneVisitEntities;
           this.visitsToAccept = this.oneDay.listOfVisitsToApprove;
+          this.oneDayDescription = this.oneDay.oneDayDescription;
         }
       }
     });
-
-
   }
 
   cancelVisitToAccept(visitId: number) {
@@ -47,5 +47,11 @@ export class DoctorVisitsForOneDayComponent implements OnInit {
       this.toastr.success('Anulowano wizytę!');
       this.ngOnInit();
     }, error1 => console.log(error1.error.message));
+  }
+
+  changeOneDayDescription(oneDayDescription: string) {
+    this.doctorService.changeOneDayDescription(this.oneDay.dateId, oneDayDescription).subscribe(() => {
+      this.toastr.success('Zmieniono opis dnia!');
+    });
   }
 }

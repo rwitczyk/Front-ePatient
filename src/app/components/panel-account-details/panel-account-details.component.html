@@ -32,7 +32,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let oneVisit of patientVisits">
-        <td>{{oneVisit.visitDate}}</td>
+        <td>{{oneVisit.visitDate.substring(0, 10)}}</td>
         <td>{{oneVisit.fromTime.toString().substring(0, oneVisit.fromTime.toString().length - 3)}}
           - {{oneVisit.toTime.toString().substring(0, oneVisit.toTime.toString().length - 3)}}</td>
         <td>{{oneVisit.doctor.name}} {{oneVisit.doctor.surname}}</td>

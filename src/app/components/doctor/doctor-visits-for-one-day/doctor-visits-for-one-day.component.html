@@ -2,9 +2,15 @@
 
 <div class="component-background-image"></div>
 
-<div class="form-container" style="margin-top: 2rem;">
+<div class="form-container">
 
-  <mat-tab-group style="margin-top: 2rem">
+  <span style="margin-left: 1rem;">
+    <label for="descriptionTextArea" style="display: block">Dodatkowy opis:</label>
+    <textarea id="descriptionTextArea" #description rows="3" (change)="changeOneDayDescription(description.value)"
+              style="width: 100%;">{{oneDayDescription}}</textarea>
+  </span>
+
+  <mat-tab-group style="margin-top: 1rem">
 
     <mat-tab label="Wizyty do akceptacji">
       <table mdbTable>
@@ -14,7 +20,7 @@
         </tr>
         </thead>
         <tbody *ngIf="oneDay != null">
-        <tr mdbTableCol *ngFor="let doctorOneDate of visitsToAccept">
+        <tr *ngFor="let doctorOneDate of visitsToAccept">
           <th *ngIf="doctorOneDate.visibility == true" scope="row">{{doctorOneDate.visitHour}}:{{doctorOneDate.visitMinute}}</th>
           <td *ngIf="doctorOneDate.visibility == true">{{doctorOneDate.additionalDescription}}</td>
           <td *ngIf="doctorOneDate.visibility == true">
@@ -39,7 +45,7 @@
         </tr>
         </thead>
         <tbody *ngIf="oneDay != null">
-        <tr mdbTableCol *ngFor="let oneVisit of doctorVisits">
+        <tr *ngFor="let oneVisit of doctorVisits">
           <th scope="row">{{oneVisit.fromTime.toString().substring(0, oneVisit.fromTime.toString().length - 3)}}</th>
           <th scope="row">{{oneVisit.toTime.toString().substring(0, oneVisit.toTime.toString().length - 3)}}</th>
           <td>{{oneVisit.isBusy}}</td>
