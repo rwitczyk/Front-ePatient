@@ -15,11 +15,7 @@ export class DoctorVisitsDatePickerComponent implements OnInit {
   calendarPlugins = [dayGridPlugin, interactionPlugin];
   calendarEvents = [];
   eventMyStyle = 'my-calendar-event-style';
-  actualDate: Date;
-  actualDay: number;
-  actualMonth: number;
-  actualYear: number;
-  today: string;
+  doctorId: string;
 
   doctorDatesModel: DoctorDatesModel;
 
@@ -27,37 +23,29 @@ export class DoctorVisitsDatePickerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.actualDate = new Date();
-    this.doctorService.getDoctorDatesById(sessionStorage.getItem('accountId')).subscribe(value => {
+    this.doctorId = sessionStorage.getItem('accountId');
+
+    this.doctorService.getDoctorDatesById(this.doctorId).subscribe(value => {
         this.doctorDatesModel = value;
         console.log(this.doctorDatesModel);
 
-        this.actualDay = this.actualDate.getDate() + 1;
-        this.actualMonth = (this.actualDate.getMonth() + 1);
-        this.actualYear = (this.actualDate.getFullYear());
-        this.today = this.actualYear + '-' + this.actualMonth + '-' + this.actualDay;
-        this.actualDay = this.actualDay - 1;
-
-        console.log('TODAY: ' + this.today);
-
-
         for (let i = 0; i < 90; i++) {
           if (this.doctorDatesModel.days[i].visitsFromTime === null) {
-            console.log('Here' + this.actualYear + '-' + this.actualMonth + '-' + this.actualDay);
+            console.log('No visit: ' + this.doctorDatesModel.days[i].date);
             this.calendarEvents.push({
               title: ' - ',
-              date: this.actualYear + '-' + this.actualMonth + '-' + (this.actualDay.toString(10).length === 1 ? '0' + this.actualDay : this.actualDay)
+              date: this.doctorDatesModel.days[i].date.substring(0, 10)
             });
           } else {
-            console.log('ELSE' + this.actualYear + '-' + this.actualMonth + '-' + this.actualDay);
+            console.log('Visits: ' + this.doctorDatesModel.days[i].date);
             this.calendarEvents.push({
               title: this.doctorDatesModel.days[i].visitsFromTime.substring(0, this.doctorDatesModel.days[i].visitsFromTime.length - 3) +
                 ' - ' + this.doctorDatesModel.days[i].visitsToTime.substring(0, this.doctorDatesModel.days[i].visitsToTime.length - 3),
-              date: this.actualYear + '-' + this.actualMonth + '-' + this.actualDay
+              date: this.doctorDatesModel.days[i].date.substring(0, 10)
             });
           }
-          this.actualDay = (this.actualDay + 1);
         }
+
       }
     );
   }

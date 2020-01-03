@@ -2,7 +2,7 @@
 
 <div class="component-background-image"></div>
 
-<div class="doctor-management-calendar form-container">
+<div class="doctor-management-calendar multi-days-container">
   <h5 style="margin-top: 2rem;">Stwórz harmonogram pracy doktora:</h5>
 
   <mat-tab-group style="margin-top: 1rem">
@@ -18,8 +18,151 @@
       >
       </full-calendar>
     </mat-tab>
+
     <mat-tab label="Na wiele dni">
-      Checkboxy jakies do wyboru
+
+      <table mdbTable bordered="true">
+        <thead class="grey lighten-1 black-text" style="text-align: center">
+        <tr>
+          <th></th>
+          <th>
+            <input type="checkbox" [(ngModel)]="mondayCheckbox"/> <br>
+            Poniedziałek
+          </th>
+          <th>
+            <input type="checkbox" [(ngModel)]="tuesdayCheckbox"/> <br>
+            Wtorek
+          </th>
+          <th>
+            <input type="checkbox" [(ngModel)]="wednesdayCheckbox"/> <br>
+            Sroda
+          </th>
+          <th>
+            <input type="checkbox" [(ngModel)]="thursdayCheckbox"/> <br>
+            Czwartek
+          </th>
+          <th>
+            <input type="checkbox" [(ngModel)]="fridayCheckbox"/> <br>
+            Piatek
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td style="vertical-align: middle; text-align: right">Wizyty od:</td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="mondayVisitsFrom" [minuteStep]="5"></ngb-timepicker>
+          </td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="tuesdayVisitsFrom" [minuteStep]="5"></ngb-timepicker>
+          </td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="wednesdayVisitsFrom" [minuteStep]="5"></ngb-timepicker>
+          </td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="thursdayVisitsFrom" [minuteStep]="5"></ngb-timepicker>
+          </td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="fridayVisitsFrom" [minuteStep]="5"></ngb-timepicker>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="vertical-align: middle; text-align: right">Wizyty do:</td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="mondayVisitsTo" [minuteStep]="5"></ngb-timepicker>
+          </td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="tuesdayVisitsTo" [minuteStep]="5"></ngb-timepicker>
+          </td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="wednesdayVisitsTo" [minuteStep]="5"></ngb-timepicker>
+          </td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="thursdayVisitsTo" [minuteStep]="5"></ngb-timepicker>
+          </td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="fridayVisitsTo" [minuteStep]="5"></ngb-timepicker>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="vertical-align: middle; text-align: right">Czas trwania wizyty:</td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="mondayVisitsLength" [minuteStep]="5"></ngb-timepicker>
+          </td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="tuesdayVisitsLength" [minuteStep]="5"></ngb-timepicker>
+          </td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="wednesdayVisitsLength" [minuteStep]="5"></ngb-timepicker>
+          </td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="thursdayVisitsLength" [minuteStep]="5"></ngb-timepicker>
+          </td>
+          <td>
+            <ngb-timepicker size="small" [(ngModel)]="fridayVisitsLength" [minuteStep]="5"></ngb-timepicker>
+          </td>
+        </tr>
+      </table>
+
+      <br>
+      <mat-form-field>
+        <input matInput #datePicker
+               placeholder="Wybierz zakres dat"
+               [satDatepicker]="picker">
+        <sat-datepicker #picker [rangeMode]="true" ></sat-datepicker>
+        <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
+      </mat-form-field>
+
+      <br>
+      <button class="btn btn-primary" (click)="saveMultiDaysTimetable(datePicker.value)">Zapisz</button>
+      <!--      <div>-->
+      <!--        <div class="header-for-days">-->
+      <!--          Dzień:-->
+      <!--          <hr>-->
+      <!--          Od:-->
+      <!--          <hr>-->
+      <!--          Do:-->
+      <!--          <hr>-->
+      <!--          Czas pojedynczej wizyty:-->
+      <!--        </div>-->
+
+      <!--        <div class="one_from_multi_day">-->
+      <!--          <input type="checkbox"/><br>-->
+      <!--          Poniedziałek-->
+      <!--          <hr>-->
+      <!--          <div>-->
+      <!--            <ngb-timepicker size="small" [(ngModel)]="oneVisitFromTime" [minuteStep]="5"></ngb-timepicker>-->
+      <!--          </div>-->
+      <!--          <div>-->
+      <!--            <ngb-timepicker size="small" [(ngModel)]="oneVisitFromTime" [minuteStep]="5"></ngb-timepicker>-->
+      <!--          </div>-->
+      <!--          <div>-->
+      <!--            <ngb-timepicker size="small" [(ngModel)]="oneVisitFromTime" [minuteStep]="5"></ngb-timepicker>-->
+      <!--          </div>-->
+      <!--        </div>-->
+
+      <!--        <div class="one_from_multi_day">-->
+      <!--          Wtorek-->
+      <!--          <hr>-->
+      <!--        </div>-->
+
+      <!--        <div class="one_from_multi_day">-->
+      <!--          Sroda-->
+      <!--          <hr>-->
+      <!--        </div>-->
+
+      <!--        <div class="one_from_multi_day">-->
+      <!--          Czwartek-->
+      <!--          <hr>-->
+      <!--        </div>-->
+
+      <!--        <div class="one_from_multi_day">-->
+      <!--          Piątek-->
+      <!--          <hr>-->
+      <!--        </div>-->
+      <!--      </div>-->
     </mat-tab>
   </mat-tab-group>
 

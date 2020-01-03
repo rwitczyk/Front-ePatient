@@ -35,6 +35,9 @@ import {ManageTimetableDoctorComponent} from './components/admin/manage-timetabl
 import {PatientManagementByAdminComponent} from './components/admin/patient-management-by-admin/patient-management-by-admin.component';
 import {ManageOneDayDoctorTimetableComponent} from './components/admin/manage-one-day-doctor-timetable/manage-one-day-doctor-timetable.component';
 import {BookAVisitDetailsComponent} from './components/doctor/book-a-visit-details/book-a-visit-details.component';
+import {SatDatepickerModule, SatNativeDateModule} from 'saturn-datepicker';
+import {MatDatepickerModule, MatInputModule} from '@angular/material';
+import {OneVisitPatientDetailsComponent} from './components/doctor/one-visit-patient-details/one-visit-patient-details.component';
 
 @NgModule({
   declarations: [
@@ -55,9 +58,13 @@ import {BookAVisitDetailsComponent} from './components/doctor/book-a-visit-detai
     PatientManagementByAdminComponent,
     ManageOneDayDoctorTimetableComponent,
     BookAVisitDetailsComponent,
+    OneVisitPatientDetailsComponent,
   ],
   imports: [
     BrowserModule,
+    SatDatepickerModule,
+    SatNativeDateModule,
+    MatDatepickerModule,
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     TableModule,
@@ -77,7 +84,7 @@ import {BookAVisitDetailsComponent} from './components/doctor/book-a-visit-detai
       easeTime: 500,
       resetTimeoutOnDuplicate: true
     }),
-    FormsModule, ReactiveFormsModule, NgbTimepickerModule
+    FormsModule, ReactiveFormsModule, NgbTimepickerModule, MatInputModule
   ],
   providers: [
     {

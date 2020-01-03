@@ -6,6 +6,7 @@ import {DoctorDatesModel} from '../models/DoctorDatesModel';
 import {BookAVisitModel} from '../models/BookAVisitModel';
 import {OneVisitModel} from '../models/OneVisitModel';
 import {DoctorTimetableModel} from '../models/DoctorTimetableModel';
+import {MultiDaysDoctorTimetable} from '../models/MultiDaysDoctorTimetable';
 
 @Injectable({
   providedIn: 'root'
@@ -65,5 +66,9 @@ export class DoctorService {
 
   changeOneDayDescription(dateId: number, oneDayDescription: string) {
     return this.http.post(environment.backendUrl + '/api/doctor/changeOneDayDescription/' + dateId + '/' + oneDayDescription, '');
+  }
+
+  createMultiDaysDoctorTimetable(mutliDaysDoctorTimetable: MultiDaysDoctorTimetable) {
+    return this.http.post(environment.backendUrl + '/api/doctor/createMultiDaysTimeTable', mutliDaysDoctorTimetable);
   }
 }

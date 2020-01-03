@@ -21,7 +21,8 @@
         </thead>
         <tbody *ngIf="oneDay != null">
         <tr *ngFor="let doctorOneDate of visitsToAccept">
-          <th *ngIf="doctorOneDate.visibility == true" scope="row">{{doctorOneDate.visitHour}}:{{doctorOneDate.visitMinute}}</th>
+          <th *ngIf="doctorOneDate.visibility == true" scope="row">{{doctorOneDate.visitHour}}
+            :{{doctorOneDate.visitMinute}}</th>
           <td *ngIf="doctorOneDate.visibility == true">{{doctorOneDate.additionalDescription}}</td>
           <td *ngIf="doctorOneDate.visibility == true">
             <button mdbBtn class="btn btn-info" [routerLink]="['/book-a-visit-details',doctorOneDate.visitId]">
@@ -48,8 +49,16 @@
         <tr *ngFor="let oneVisit of doctorVisits">
           <th scope="row">{{oneVisit.fromTime.toString().substring(0, oneVisit.fromTime.toString().length - 3)}}</th>
           <th scope="row">{{oneVisit.toTime.toString().substring(0, oneVisit.toTime.toString().length - 3)}}</th>
-          <td>{{oneVisit.isBusy}}</td>
+          <td>
+            <div *ngIf="oneVisit.isBusy === 'false'; else elseBlock">Wolne</div>
+            <ng-template #elseBlock>Zajete</ng-template>
+          </td>
           <td>{{oneVisit.additionalDescription}}</td>
+          <td>
+            <button *ngIf="oneVisit.isBusy === 'true'" mdbBtn class="btn btn-info" [routerLink]="['/one-visit-patient-details', oneVisit.patientId]">
+              Szczegóły wizyty
+            </button>
+          </td>
         </tr>
         </tbody>
       </table>

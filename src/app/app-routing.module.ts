@@ -15,6 +15,7 @@ import {PatientManagementByAdminComponent} from './components/admin/patient-mana
 import {ManageTimetableDoctorComponent} from './components/admin/manage-timetable-doctor/manage-timetable-doctor.component';
 import {ManageOneDayDoctorTimetableComponent} from './components/admin/manage-one-day-doctor-timetable/manage-one-day-doctor-timetable.component';
 import {BookAVisitDetailsComponent} from './components/doctor/book-a-visit-details/book-a-visit-details.component';
+import {OneVisitPatientDetailsComponent} from './components/doctor/one-visit-patient-details/one-visit-patient-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -32,7 +33,8 @@ const routes: Routes = [
   {path: 'doctor-visits-for-one-day/:date', component: DoctorVisitsForOneDayComponent},
   {path: 'account-details', component: PanelAccountDetailsComponent},
   {path: 'patients-management', component: PatientManagementByAdminComponent},
-  {path: 'book-a-visit-details/:visitId', component: BookAVisitDetailsComponent}
+  {path: 'book-a-visit-details/:visitId', component: BookAVisitDetailsComponent},
+  {path: 'one-visit-patient-details/:patientId', component: OneVisitPatientDetailsComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+
+<div class="component-background-image"></div>
+
+<div class="form-container margin-top-2rem" *ngIf="patient">
+  <h5 style="margin-bottom: 1rem">Szczegóły pacjenta</h5>
+  <h6>Imię: {{patient.name}}</h6>
+  <h6>Nazwisko: {{patient.surname}}</h6>
+  <h6>Telefon: {{patient.phoneNumber}}</h6>
+  <h6>Email: {{patient.email}}</h6>
+
+  <br>
+  <h4>Wszystkie wizyty:</h4>
+  <table mdbTable>
+    <thead>
+    <tr>
+      <th *ngFor="let header of patientVisitsHeaders" scope="col">{{header}} </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let oneVisit of patientVisits">
+      <td>{{oneVisit.visitDate.substring(0, 10)}}</td>
+      <td>{{oneVisit.fromTime.toString().substring(0, oneVisit.fromTime.toString().length - 3)}}
+        - {{oneVisit.toTime.toString().substring(0, oneVisit.toTime.toString().length - 3)}}</td>
+      <td>{{oneVisit.doctor.name}} {{oneVisit.doctor.surname}}</td>
+      <td>{{oneVisit.additionalDescription}}</td>
+    </tbody>
+  </table>
+
+</div>

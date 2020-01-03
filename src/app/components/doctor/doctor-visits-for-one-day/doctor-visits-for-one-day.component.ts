@@ -18,7 +18,7 @@ export class DoctorVisitsForOneDayComponent implements OnInit {
   visitsToAccept: BookAVisitModel[];
   visitDate: string;
   tableHeaders = ['Godzina', 'Dodatkowy opis', 'Szczegóły', 'Odwołaj wizytę'];
-  visitTableHeaders = ['Od godziny', 'Do godziny', 'Stan', 'Opis'];
+  visitTableHeaders = ['Od godziny', 'Do godziny', 'Stan', 'Opis', 'Szczegóły'];
   doctorVisits: OneVisitModel[];
   oneDayDescription: string;
 
@@ -35,6 +35,7 @@ export class DoctorVisitsForOneDayComponent implements OnInit {
         if (this.doctorDates.days[i].date.substring(0, 10) === this.visitDate) {
           this.oneDay = this.doctorDates.days[i];
           this.doctorVisits = this.oneDay.listOfOneVisitEntities;
+          console.log(this.oneDay.listOfOneVisitEntities);
           this.visitsToAccept = this.oneDay.listOfVisitsToApprove;
           this.oneDayDescription = this.oneDay.oneDayDescription;
         }

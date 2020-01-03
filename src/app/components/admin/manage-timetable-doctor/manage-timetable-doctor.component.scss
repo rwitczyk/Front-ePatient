@@ -1,0 +1,30 @@
+@media (max-width: 992px) {
+  .multi-days-container {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .multi-days-container {
+    width: 70%;
+    margin: auto;
+  }
+}
+
+.one_from_multi_day {
+  display: inline-block;
+  border: #888888 solid 1px;
+  margin: 0.5rem 0.2rem 0 0.2rem;
+  width: 9rem;
+  height: 30rem;
+  text-align: center;
+}
+
+.header-for-days {
+  display: inline-block;
+  width: 8%;
+  height: 20rem;
+  text-align: right;
+  margin-right: 0.2rem;
+}
