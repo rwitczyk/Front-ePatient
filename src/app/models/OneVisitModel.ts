@@ -10,4 +10,5 @@ export class OneVisitModel {
   visitDate: string;
   isBusy: string;
   additionalDescription: string;
+  additionalDoctorDescription: string;
 }

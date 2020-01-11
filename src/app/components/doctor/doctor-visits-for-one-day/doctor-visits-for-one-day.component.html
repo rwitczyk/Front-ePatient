@@ -55,7 +55,7 @@
           </td>
           <td>{{oneVisit.additionalDescription}}</td>
           <td>
-            <button *ngIf="oneVisit.isBusy === 'true'" mdbBtn class="btn btn-info" [routerLink]="['/one-visit-patient-details', oneVisit.patientId]">
+            <button *ngIf="oneVisit.isBusy === 'true'" mdbBtn class="btn btn-info" [routerLink]="['/one-visit-patient-details', oneVisit.patientId, oneVisit.visitId]">
               Szczegóły wizyty
             </button>
           </td>

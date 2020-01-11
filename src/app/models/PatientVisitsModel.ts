@@ -10,4 +10,5 @@ export class PatientVisitsModel {
   visitDate: string;
   isBusy: string;
   additionalDescription: string;
+  additionalDoctorDescription: string;
 }

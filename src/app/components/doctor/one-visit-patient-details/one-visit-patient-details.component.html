@@ -9,6 +9,12 @@
   <h6>Telefon: {{patient.phoneNumber}}</h6>
   <h6>Email: {{patient.email}}</h6>
 
+  <span style="margin-left: 1rem;">
+    <label for="descriptionTextArea" style="display: block">Dodatkowy opis:</label>
+    <textarea id="descriptionTextArea" #description rows="3" (change)="changeOneVisitDoctorDescription(description.value)"
+              style="width: 100%;">{{oneVisitDoctorDescription}}</textarea>
+  </span>
+
   <br>
   <h4>Wszystkie wizyty:</h4>
   <table mdbTable>
@@ -24,6 +30,7 @@
         - {{oneVisit.toTime.toString().substring(0, oneVisit.toTime.toString().length - 3)}}</td>
       <td>{{oneVisit.doctor.name}} {{oneVisit.doctor.surname}}</td>
       <td>{{oneVisit.additionalDescription}}</td>
+      <td>{{oneVisit.additionalDoctorDescription}}</td>
     </tbody>
   </table>
 

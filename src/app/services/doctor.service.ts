@@ -71,4 +71,12 @@ export class DoctorService {
   createMultiDaysDoctorTimetable(mutliDaysDoctorTimetable: MultiDaysDoctorTimetable) {
     return this.http.post(environment.backendUrl + '/api/doctor/createMultiDaysTimeTable', mutliDaysDoctorTimetable);
   }
+
+  getOneVisitByVisitId(visitId: string) {
+    return this.http.get<string>(environment.backendUrl + '/api/visit/description/' + visitId);
+  }
+
+  changeOneVisitDoctorDescription(doctorDescription: string, visitId: string) {
+    return this.http.post(environment.backendUrl + '/api/doctor/changeOneVisitDoctorDescription/' + visitId + '/' + doctorDescription, '');
+  }
 }

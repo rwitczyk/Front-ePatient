@@ -34,7 +34,7 @@ const routes: Routes = [
   {path: 'account-details', component: PanelAccountDetailsComponent},
   {path: 'patients-management', component: PatientManagementByAdminComponent},
   {path: 'book-a-visit-details/:visitId', component: BookAVisitDetailsComponent},
-  {path: 'one-visit-patient-details/:patientId', component: OneVisitPatientDetailsComponent}
+  {path: 'one-visit-patient-details/:patientId/:visitId', component: OneVisitPatientDetailsComponent}
 ];
 
 @NgModule({
